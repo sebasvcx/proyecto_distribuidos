@@ -254,8 +254,16 @@ class ProcesoSolicitante:
 
 def main():
     """Función principal"""
+    import sys
+    
     ps = ProcesoSolicitante()
-    ps.iniciar()
+    
+    # Aceptar archivo como argumento de línea de comandos
+    if len(sys.argv) > 1:
+        archivo_solicitudes = sys.argv[1]
+        ps.iniciar(archivo_solicitudes)
+    else:
+        ps.iniciar()
 
 if __name__ == "__main__":
     main()
