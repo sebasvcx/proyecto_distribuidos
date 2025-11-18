@@ -504,8 +504,10 @@ test_failover() {
     echo -e "${WHITE}Esta prueba simula el fallo de GA y verifica la detección automática${NC}"
     echo
     
-    # Verificar que GA está corriendo
-    if ! docker compose ps ga | grep -q "running"; then
+    # Verificar que GA está corriendo usando método robusto
+    # Usar docker ps directamente que es más confiable que docker compose ps
+    GA_CONTAINER=$(docker ps --filter "name=^ga$" --format "{{.Names}}" 2>/dev/null)
+    if [ -z "$GA_CONTAINER" ] || [ "$GA_CONTAINER" != "ga" ]; then
         show_error "GA no está corriendo. Inicia los servicios primero (opción 3)."
         pause
         return
@@ -515,26 +517,133 @@ test_failover() {
     docker compose ps ga
     echo
     
-    show_info "Mostrando health checks de actores..."
-    echo -e "${CYAN}--- Logs de Health Checks ---${NC}"
-    docker compose logs actor_prestamo actor_devolucion actor_renovacion | grep -i "health\|GA\|failover" | tail -10
+    show_info "Mostrando estado de conexión de actores..."
+    echo -e "${CYAN}--- Logs recientes de actores (últimos 30 segundos) ---${NC}"
+    echo -e "${CYAN}--- Actor Préstamo ---${NC}"
+    docker compose logs --since 30s actor_prestamo 2>/dev/null | grep -iE "GA|conectado|health" | tail -3 || echo "  (sin logs recientes)"
+    echo
+    echo -e "${CYAN}--- Actor Devolución ---${NC}"
+    docker compose logs --since 30s actor_devolucion 2>/dev/null | grep -iE "GA|conectado|health" | tail -3 || echo "  (sin logs recientes)"
+    echo
+    echo -e "${CYAN}--- Actor Renovación ---${NC}"
+    docker compose logs --since 30s actor_renovacion 2>/dev/null | grep -iE "GA|conectado|health" | tail -3 || echo "  (sin logs recientes)"
     echo
     
     echo -e "${YELLOW}¿Deseas simular el fallo de GA? (s/n)${NC}"
     read -r respuesta
     
     if [[ "$respuesta" == "s" ]] || [[ "$respuesta" == "S" ]]; then
+        # Capturar timestamp antes de detener GA
+        TIMESTAMP_ANTES=$(date +%s)
+        
         show_info "Deteniendo GA..."
         docker compose stop ga
         show_success "GA detenido"
         echo
         
-        show_info "Esperando 5 segundos para que los actores detecten el fallo..."
-        sleep 5
+        show_info "Esperando 2 segundos..."
+        sleep 2
         
-        show_info "Logs de actores después del fallo:"
-        docker compose logs actor_prestamo actor_devolucion actor_renovacion | grep -i "GA\|timeout\|error\|failover" | tail -10
+        # Mostrar logs recientes (solo los nuevos después del fallo)
+        show_info "Logs recientes de actores (últimos 15 segundos):"
+        echo -e "${CYAN}--- Actor Préstamo ---${NC}"
+        docker compose logs --since 15s actor_prestamo 2>/dev/null | grep -iE "GA|timeout|error|failover|no disponible|no responde" | tail -5 || echo "  (sin logs nuevos)"
         echo
+        echo -e "${CYAN}--- Actor Devolución ---${NC}"
+        docker compose logs --since 15s actor_devolucion 2>/dev/null | grep -iE "GA|timeout|error|failover|no disponible|no responde" | tail -5 || echo "  (sin logs nuevos)"
+        echo
+        echo -e "${CYAN}--- Actor Renovación ---${NC}"
+        docker compose logs --since 15s actor_renovacion 2>/dev/null | grep -iE "GA|timeout|error|failover|no disponible|no responde" | tail -5 || echo "  (sin logs nuevos)"
+        echo
+        
+        show_info "Nota: Los actores solo detectan el fallo cuando intentan una operación."
+        echo
+        echo -e "${YELLOW}¿Deseas enviar una solicitud de prueba para ver el fallo en acción? (s/n)${NC}"
+        read -r respuesta_test
+        
+        if [[ "$respuesta_test" == "s" ]] || [[ "$respuesta_test" == "S" ]]; then
+            show_info "Enviando solicitud de prueba mientras GA está detenido..."
+            echo -e "${CYAN}Ejecutando solicitud de préstamo de prueba...${NC}"
+            echo
+            
+            # Verificar que GA esté detenido antes de continuar
+            if docker ps --filter "name=^ga$" --format "{{.Names}}" 2>/dev/null | grep -q "^ga$"; then
+                show_error "GA se levantó automáticamente. Deteniéndolo nuevamente..."
+                docker compose stop ga
+                sleep 2
+            fi
+            
+            # Crear una solicitud de prueba temporal SOLO con PRESTAMO (requiere GA)
+            TEST_FILE="data/test_failover.txt"
+            echo "PRESTAMO L001 U001 SEDE_1" > "$TEST_FILE"
+            show_info "Archivo de prueba creado con solicitud de PRESTAMO (requiere GA)"
+            echo
+            
+            # Construir la imagen de gc si no existe (tiene la misma estructura que ps)
+            IMAGE_NAME="sistema_distribuido-gc"
+            if ! docker images | grep -q "$IMAGE_NAME"; then
+                show_info "Construyendo imagen necesaria..."
+                docker compose build gc > /dev/null 2>&1
+            fi
+            
+            # Crear script temporal para ejecutar PS con el archivo correcto
+            TEMP_SCRIPT="/tmp/run_ps_test.py"
+            cat > "$TEMP_SCRIPT" << 'EOF'
+import sys
+sys.path.insert(0, '/app')
+from proceso_solicitante import ProcesoSolicitante
+ps = ProcesoSolicitante()
+ps.iniciar('/app/data/test_failover.txt')
+EOF
+            
+            # Ejecutar PS usando docker run directamente para evitar que compose levante dependencias
+            show_info "Ejecutando PS sin levantar dependencias..."
+            show_info "Nota: Esta solicitud de PRESTAMO requiere GA, debería fallar..."
+            echo
+            CURRENT_DIR=$(pwd)
+            docker run --rm \
+                --network red_distribuida \
+                -e GC_HOST=gc \
+                -e GC_PORT=5001 \
+                -v "$CURRENT_DIR/data:/app/data" \
+                -v "$CURRENT_DIR/logs:/app/logs" \
+                -v "$TEMP_SCRIPT:/tmp/run_ps_test.py" \
+                "$IMAGE_NAME" \
+                python /tmp/run_ps_test.py 2>&1 | head -40 | while IFS= read -r line; do
+                if [[ $line == *"Error"* ]] || [[ $line == *"timeout"* ]] || [[ $line == *"no disponible"* ]] || [[ $line == *"ERROR"* ]] || [[ $line == *"falló"* ]]; then
+                    show_error "$line"
+                elif [[ $line == *"exitoso"* ]] || [[ $line == *"OK"* ]] || [[ $line == *"SUCCESS"* ]]; then
+                    show_success "$line"
+                elif [[ $line == *"Solicitud"* ]] || [[ $line == *"Respuesta"* ]]; then
+                    show_communication "$line"
+                else
+                    echo "$line"
+                fi
+            done
+            
+            rm -f "$TEST_FILE" "$TEMP_SCRIPT"
+            echo
+            
+            # Verificar que GA siga detenido después de la prueba
+            if docker ps --filter "name=^ga$" --format "{{.Names}}" 2>/dev/null | grep -q "^ga$"; then
+                show_error "GA se levantó durante la prueba. Deteniéndolo..."
+                docker compose stop ga
+            else
+                show_success "GA permaneció detenido durante la prueba"
+            fi
+            echo
+            
+            show_info "Logs de actores después del intento de operación:"
+            echo -e "${CYAN}--- Actor Préstamo (últimos 10 segundos) ---${NC}"
+            docker compose logs --since 10s actor_prestamo 2>/dev/null | grep -iE "GA|timeout|error|failover|no disponible|no responde|Error|disponible|Gestor de Almacenamiento" | tail -15 || echo "  (sin logs nuevos)"
+            echo
+            echo -e "${CYAN}--- Actor Devolución (últimos 10 segundos) ---${NC}"
+            docker compose logs --since 10s actor_devolucion 2>/dev/null | grep -iE "GA|timeout|error|failover|no disponible|no responde|Error|disponible|Gestor de Almacenamiento" | tail -15 || echo "  (sin logs nuevos)"
+            echo
+            echo -e "${CYAN}--- Actor Renovación (últimos 10 segundos) ---${NC}"
+            docker compose logs --since 10s actor_renovacion 2>/dev/null | grep -iE "GA|timeout|error|failover|no disponible|no responde|Error|disponible|Gestor de Almacenamiento" | tail -15 || echo "  (sin logs nuevos)"
+            echo
+        fi
         
         echo -e "${YELLOW}¿Deseas recuperar GA? (s/n)${NC}"
         read -r respuesta2
@@ -542,11 +651,21 @@ test_failover() {
         if [[ "$respuesta2" == "s" ]] || [[ "$respuesta2" == "S" ]]; then
             show_info "Reiniciando GA..."
             docker compose start ga
-            sleep 3
             show_success "GA reiniciado"
+            echo
             
-            show_info "Logs de reconexión:"
-            docker compose logs actor_prestamo | grep -i "GA\|conectado\|reconectar" | tail -5
+            show_info "Esperando que GA esté listo..."
+            sleep 5
+            
+            show_info "Logs de reconexión (últimos 10 segundos):"
+            echo -e "${CYAN}--- Actor Préstamo ---${NC}"
+            docker compose logs --since 10s actor_prestamo 2>/dev/null | grep -iE "GA|conectado|reconectar|health|exitoso" | tail -5 || echo "  (sin logs nuevos)"
+            echo
+            echo -e "${CYAN}--- Actor Devolución ---${NC}"
+            docker compose logs --since 10s actor_devolucion 2>/dev/null | grep -iE "GA|conectado|reconectar|health|exitoso" | tail -5 || echo "  (sin logs nuevos)"
+            echo
+            echo -e "${CYAN}--- Actor Renovación ---${NC}"
+            docker compose logs --since 10s actor_renovacion 2>/dev/null | grep -iE "GA|conectado|reconectar|health|exitoso" | tail -5 || echo "  (sin logs nuevos)"
         fi
     fi
     

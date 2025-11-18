@@ -1,1 +1,3 @@
 timestamp,operacion,tiempo_respuesta_ms,libro_id,exito,total_prestamos_2min,tiempo_promedio_ms,desviacion_estandar_ms
+2025-11-18T13:19:47.975450,PRESTAMO,10069.20,L001,NO,1,10069.20,0.00
+2025-11-18T13:29:02.360690,PRESTAMO,10110.84,L001,NO,1,10110.84,0.00
