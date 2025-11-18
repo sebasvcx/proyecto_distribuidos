@@ -86,7 +86,8 @@ class TestFileWorkload:
         # 3. Crear snapshot inicial de libros
         snapshot_path = "logs/libros_before_workload.json"
         TestUtils.crear_snapshot_libros(self.libros_path, snapshot_path)
-        libros_inicial = TestUtils.read_json(self.libros_path)
+        datos_inicial = TestUtils.read_json(self.libros_path)
+        libros_inicial = datos_inicial.get('libros', [])
         
         print("Snapshot inicial creado")
         
@@ -190,7 +191,8 @@ class TestFileWorkload:
         # Esperar un momento para que los actores procesen
         time.sleep(2)
         
-        libros_final = TestUtils.read_json(self.libros_path)
+        datos_final = TestUtils.read_json(self.libros_path)
+        libros_final = datos_final.get('libros', [])
         
         # Verificar que hubo cambios
         if libros_final != libros_inicial:

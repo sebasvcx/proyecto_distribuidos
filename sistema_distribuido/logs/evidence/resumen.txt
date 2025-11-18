@@ -1,30 +1,26 @@
 === RESUMEN DE EVIDENCIAS ===
-Timestamp: Sat Oct  4 14:13:47 -05 2025
+Timestamp: Mon Nov 17 23:39:44 -05 2025
 Directorio: ./logs/evidence
 
 === CONTENEDORES ===
-CONTAINER ID   IMAGE                                  COMMAND                  CREATED              STATUS                    PORTS                              NAMES
-5bd7e66b6378   sistema_distribuido-ps                 "python proceso_soli…"   4 seconds ago        Up 4 seconds                                                 ps
-820338ab6b1a   sistema_distribuido-tester             "python -m pytest -v…"   About a minute ago   Up About a minute                                            sistema_distribuido-tester-run-6585de25a682
-c7abc8ce6864   sistema_distribuido-tester             "python -m pytest -v…"   2 minutes ago        Up 2 minutes                                                 sistema_distribuido-tester-run-dfb23d2c251c
-cccb64f1bc84   sistema_distribuido-tester             "python -m pytest -v…"   2 minutes ago        Up 2 minutes                                                 sistema_distribuido-tester-run-418c38c47a17
-e43191ad7f60   sistema_distribuido-tester             "python -m pytest -v…"   4 minutes ago        Up 4 minutes                                                 sistema_distribuido-tester-run-ec1c63beef0c
-605a7466a65d   sistema_distribuido-tester             "python -m pytest -v…"   7 minutes ago        Up 7 minutes                                                 sistema_distribuido-tester-run-a5004daa861c
-acfd2e209b7b   sistema_distribuido-actor_renovacion   "python actor_renova…"   26 minutes ago       Up 26 minutes (healthy)                                      actor_ren
-38a4b5a2b536   sistema_distribuido-actor_devolucion   "python actor_devolu…"   26 minutes ago       Up 26 minutes (healthy)                                      actor_dev
-4cbdebe64cd3   sistema_distribuido-gc                 "python gestor_carga…"   26 minutes ago       Up 26 minutes (healthy)   0.0.0.0:5001-5002->5001-5002/tcp   gc
-6814f2bd114c   postgres:11.6                          "docker-entrypoint.s…"   4 weeks ago          Up 3 hours                0.0.0.0:5452->5432/tcp             payroll-query-backend-db-postgres-1
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED             STATUS                    PORTS                                                             NAMES
+b83cd5da8d00   sistema_distribuido-ps                 "python proceso_soli…"   About an hour ago   Up 3 seconds                                                                                ps
+5180d90daab0   sistema_distribuido-actor_prestamo     "python actor_presta…"   About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5004->5004/tcp, [::]:5004->5004/tcp                       actor_prestamo
+ea35a1dfc029   sistema_distribuido-actor_renovacion   "python actor_renova…"   About an hour ago   Up 47 seconds (healthy)                                                                     actor_ren
+46cf23d0aab9   sistema_distribuido-actor_devolucion   "python actor_devolu…"   About an hour ago   Up 47 seconds (healthy)                                                                     actor_dev
+b5be6753d944   sistema_distribuido-gc                 "python gestor_carga…"   About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5001-5002->5001-5002/tcp, [::]:5001-5002->5001-5002/tcp   gc
+1af8fb868757   sistema_distribuido-ga                 "python gestor_almac…"   About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5003->5003/tcp, [::]:5003->5003/tcp                       ga
 
 === IPs INTERNAS ===
-gc IP: 172.19.0.2
-actor_dev IP: 172.19.0.4
-actor_ren IP: 172.19.0.3
+gc IP: 172.18.0.2
+actor_dev IP: 172.18.0.5
+actor_ren IP: 172.18.0.3
 
 === MÉTRICAS ===
-operaciones_ok=21
-operaciones_error=11
-publicaciones_devolucion=10
-publicaciones_renovacion=11
+operaciones_ok=94
+operaciones_error=22
+publicaciones_devolucion=42
+publicaciones_renovacion=52
 
 === ARCHIVOS RECOLECTADOS ===
 - containers_docker_ps.txt: Estado de contenedores (docker ps)
@@ -41,6 +37,6 @@ publicaciones_renovacion=11
 - metricas.txt: Métricas del sistema
 
 === OBSERVACIONES ===
-- Recolección completada: Sat Oct  4 14:13:47 -05 2025
+- Recolección completada: Mon Nov 17 23:39:44 -05 2025
 - Total de archivos:       13
-- Tamaño total:  76K
+- Tamaño total: 9.2M

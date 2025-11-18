@@ -25,7 +25,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class GestorAlmacenamiento:
-    def __init__(self,
+    def __init__(self, 
                  primary_path="data/primary/libros.json",
                  secondary_path="data/secondary/libros.json",
                  port=5003,
@@ -56,42 +56,6 @@ class GestorAlmacenamiento:
         
         # Inicializar réplicas si no existen
         self._inicializar_replicas()
-
-    @staticmethod
-    def _normalizar_libro_id(libro_id):
-        """Normaliza IDs de libro para mantener consistencia con data/libros.json."""
-        if not isinstance(libro_id, str):
-            return libro_id
-
-        valor = libro_id.strip().upper()
-        if not valor.startswith('L'):
-            return valor
-
-        try:
-            numero = int(''.join(ch for ch in valor[1:] if ch.isdigit()))
-            # El dataset usa 4 dígitos luego del prefijo L (ej: L0003)
-            return f"L{numero:04d}"
-        except ValueError:
-            return valor
-
-    @staticmethod
-    def _ajustar_metadata_prestamos(base_datos, sede, delta):
-        """Actualiza contadores de préstamos por sede si aplica."""
-        metadata = base_datos.get('metadata', {})
-        if sede == 'SEDE_1':
-            metadata['ejemplares_prestados_sede_1'] = max(
-                0,
-                metadata.get('ejemplares_prestados_sede_1', 0) + delta
-            )
-        elif sede == 'SEDE_2':
-            metadata['ejemplares_prestados_sede_2'] = max(
-                0,
-                metadata.get('ejemplares_prestados_sede_2', 0) + delta
-            )
-        else:
-            # Para sedes de pruebas (p.ej. SEDE_TEST) no ajustamos métricas globales
-            if delta != 0:
-                logger.debug(f"Sede '{sede}' fuera de métricas, delta {delta} ignorado")
     
     def _inicializar_replicas(self):
         """Inicializa las réplicas si no existen o están vacías"""
@@ -243,28 +207,11 @@ class GestorAlmacenamiento:
                 # Guardar datos
                 with open(archivo, 'w', encoding='utf-8') as f:
                     json.dump(base_datos, f, ensure_ascii=False, indent=2)
-
-                # Sincronizar archivo público si estamos actualizando la primaria
-                if archivo == self.primary_path:
-                    self._sincronizar_archivo_publico(base_datos)
-
+                
                 return True
         except Exception as e:
             logger.error(f"Error guardando base de datos en {archivo}: {e}")
             return False
-
-    def _sincronizar_archivo_publico(self, base_datos):
-        """Mantiene data/libros.json sincronizado para pruebas y reportes."""
-        destino = 'data/libros.json'
-        try:
-            os.makedirs(os.path.dirname(destino), exist_ok=True)
-            lock = FileLock(f"{destino}.lock")
-            with lock:
-                logger.info("Sincronizando archivo público data/libros.json")
-                with open(destino, 'w', encoding='utf-8') as f:
-                    json.dump(base_datos, f, ensure_ascii=False, indent=2)
-        except Exception as e:
-            logger.warning(f"No se pudo sincronizar {destino}: {e}")
     
     def _replicar_a_secundaria(self, base_datos):
         """Replica los datos a la réplica secundaria de forma asíncrona"""
@@ -300,9 +247,7 @@ class GestorAlmacenamiento:
             return None
         
         libros = base_datos.get('libros', [])
-        if libro_id:
-            libro_id = self._normalizar_libro_id(libro_id)
-
+        
         # Búsqueda por ID
         if libro_id:
             for libro in libros:
@@ -338,9 +283,6 @@ class GestorAlmacenamiento:
             return {"success": False, "message": "Error cargando base de datos"}
         
         libros = base_datos.get('libros', [])
-        if libro_id:
-            libro_id = self._normalizar_libro_id(libro_id)
-        ejemplares = base_datos.get('ejemplares', [])
         
         # Buscar el libro
         libro_encontrado = None
@@ -380,21 +322,11 @@ class GestorAlmacenamiento:
         libro_encontrado['ejemplares_prestados'] += 1
         
         # Actualizar contadores globales
-        metadata = base_datos.get('metadata', {})
-        metadata['ejemplares_disponibles'] = max(
-            0,
-            metadata.get('ejemplares_disponibles', 0) - 1
-        )
-        self._ajustar_metadata_prestamos(base_datos, sede, 1)
-        
-        # Actualizar también en el array global de ejemplares
-        for ejemplar in ejemplares:
-            if ejemplar.get('ejemplar_id') == ejemplar_prestado['ejemplar_id']:
-                ejemplar['estado'] = 'prestado'
-                ejemplar['usuario_prestamo'] = usuario_id
-                ejemplar['sede'] = sede
-                ejemplar['fecha_devolucion'] = fecha_devolucion
-                break
+        base_datos['metadata']['ejemplares_disponibles'] -= 1
+        if sede == 'SEDE_1':
+            base_datos['metadata']['ejemplares_prestados_sede_1'] += 1
+        else:
+            base_datos['metadata']['ejemplares_prestados_sede_2'] += 1
         
         # Guardar con failover automático
         if not self._guardar_base_datos(base_datos):
@@ -430,79 +362,41 @@ class GestorAlmacenamiento:
             return {"success": False, "message": "Error cargando base de datos"}
         
         libros = base_datos.get('libros', [])
-        ejemplares = base_datos.get('ejemplares', [])
-        if libro_id:
-            libro_id = self._normalizar_libro_id(libro_id)
-
-        libro_objetivo = None
-        ejemplar_objetivo = None
-        sede_original = None
-
-        # Buscar coincidencia exacta primero
+        
+        # Buscar el libro y ejemplar prestado
+        ejemplar_devuelto = False
         for libro in libros:
             if libro.get('libro_id') == libro_id:
-                libro_objetivo = libro
                 for ejemplar in libro.get('ejemplares', []):
-                    if ejemplar.get('estado') != 'prestado':
-                        continue
-
-                    coincide_usuario = ejemplar.get('usuario_prestamo') == usuario_id
-                    coincide_sede = ejemplar.get('sede') == sede
-
-                    if coincide_usuario and coincide_sede:
-                        ejemplar_objetivo = ejemplar
-                        sede_original = ejemplar.get('sede')
+                    if (ejemplar.get('estado') == 'prestado' and
+                        ejemplar.get('usuario_prestamo') == usuario_id and
+                        ejemplar.get('sede') == sede):
+                        
+                        # Marcar como disponible
+                        ejemplar['estado'] = 'disponible'
+                        ejemplar['usuario_prestamo'] = None
+                        ejemplar['sede'] = None
+                        ejemplar['fecha_devolucion'] = None
+                        
+                        # Actualizar contadores
+                        libro['ejemplares_disponibles'] += 1
+                        libro['ejemplares_prestados'] -= 1
+                        
+                        ejemplar_devuelto = True
                         break
-
-                if ejemplar_objetivo:
+                
+                if ejemplar_devuelto:
                     break
-
-        # Si no hay coincidencia exacta, usar cualquier ejemplar prestado como fallback
-        if libro_objetivo and not ejemplar_objetivo:
-            for ejemplar in libro_objetivo.get('ejemplares', []):
-                if ejemplar.get('estado') == 'prestado':
-                    ejemplar_objetivo = ejemplar
-                    sede_original = ejemplar.get('sede')
-                    logger.warning(
-                        f"No se encontró coincidencia exacta para devolución de {libro_id}. "
-                        "Liberando ejemplar prestado disponible para mantener consistencia."
-                    )
-                    break
-
-        if not ejemplar_objetivo:
-            return {"success": False, "message": f"No se encontró ejemplar prestado del libro {libro_id}"}
-
-        # Marcar como disponible en la estructura del libro
-        ejemplar_objetivo['estado'] = 'disponible'
-        ejemplar_objetivo['usuario_prestamo'] = None
-        ejemplar_objetivo['sede'] = None
-        ejemplar_objetivo['fecha_devolucion'] = None
-
-        # Actualizar contadores del libro asegurando límites válidos
-        libro_objetivo['ejemplares_disponibles'] = min(
-            libro_objetivo.get('total_ejemplares', libro_objetivo.get('ejemplares_disponibles', 0)),
-            libro_objetivo.get('ejemplares_disponibles', 0) + 1
-        )
-        libro_objetivo['ejemplares_prestados'] = max(
-            0,
-            libro_objetivo.get('ejemplares_prestados', 0) - 1
-        )
-
+        
+        if not ejemplar_devuelto:
+            return {"success": False, "message": f"No se encontró ejemplar prestado del libro {libro_id} por usuario {usuario_id} en sede {sede}"}
+        
         # Actualizar contadores globales
-        metadata = base_datos.get('metadata', {})
-        metadata['ejemplares_disponibles'] = metadata.get('ejemplares_disponibles', 0) + 1
-        sede_para_metricas = sede_original or sede
-        self._ajustar_metadata_prestamos(base_datos, sede_para_metricas, -1)
-
-        # Actualizar en array global
-        ejemplar_id_objetivo = ejemplar_objetivo.get('ejemplar_id')
-        for ejemplar in ejemplares:
-            if ejemplar.get('ejemplar_id') == ejemplar_id_objetivo:
-                ejemplar['estado'] = 'disponible'
-                ejemplar['usuario_prestamo'] = None
-                ejemplar['sede'] = None
-                ejemplar['fecha_devolucion'] = None
-                break
+        base_datos['metadata']['ejemplares_disponibles'] += 1
+        if sede == 'SEDE_1':
+            base_datos['metadata']['ejemplares_prestados_sede_1'] -= 1
+        else:
+            base_datos['metadata']['ejemplares_prestados_sede_2'] -= 1
         
         # Guardar con failover automático
         if not self._guardar_base_datos(base_datos):
@@ -534,53 +428,25 @@ class GestorAlmacenamiento:
             return {"success": False, "message": "Error cargando base de datos"}
         
         libros = base_datos.get('libros', [])
-        ejemplares = base_datos.get('ejemplares', [])
-        if libro_id:
-            libro_id = self._normalizar_libro_id(libro_id)
-
-        libro_objetivo = None
-        ejemplar_objetivo = None
-
-        # Buscar coincidencia exacta
+        
+        # Buscar y actualizar ejemplar
+        ejemplar_renovado = False
         for libro in libros:
             if libro.get('libro_id') == libro_id:
-                libro_objetivo = libro
                 for ejemplar in libro.get('ejemplares', []):
-                    if ejemplar.get('estado') != 'prestado':
-                        continue
-
-                    coincide_usuario = ejemplar.get('usuario_prestamo') == usuario_id
-                    coincide_sede = ejemplar.get('sede') == sede
-
-                    if coincide_usuario and coincide_sede:
-                        ejemplar_objetivo = ejemplar
+                    if (ejemplar.get('estado') == 'prestado' and
+                        ejemplar.get('usuario_prestamo') == usuario_id and
+                        ejemplar.get('sede') == sede):
+                        
+                        ejemplar['fecha_devolucion'] = nueva_fecha
+                        ejemplar_renovado = True
                         break
-
-                if ejemplar_objetivo:
+                
+                if ejemplar_renovado:
                     break
-
-        # Fallback: tomar cualquier ejemplar prestado
-        if libro_objetivo and not ejemplar_objetivo:
-            for ejemplar in libro_objetivo.get('ejemplares', []):
-                if ejemplar.get('estado') == 'prestado':
-                    ejemplar_objetivo = ejemplar
-                    logger.warning(
-                        f"No se encontró coincidencia exacta para renovación de {libro_id}. "
-                        "Actualizando el primer ejemplar prestado disponible."
-                    )
-                    break
-
-        if not ejemplar_objetivo:
-            return {"success": False, "message": f"No se encontró ejemplar prestado del libro {libro_id}"}
-
-        ejemplar_objetivo['fecha_devolucion'] = nueva_fecha
-
-        # Actualizar en array global usando el ID del ejemplar afectado
-        ejemplar_id_objetivo = ejemplar_objetivo.get('ejemplar_id')
-        for ejemplar in ejemplares:
-            if ejemplar.get('ejemplar_id') == ejemplar_id_objetivo:
-                ejemplar['fecha_devolucion'] = nueva_fecha
-                break
+        
+        if not ejemplar_renovado:
+            return {"success": False, "message": f"No se encontró ejemplar prestado del libro {libro_id} por usuario {usuario_id} en sede {sede}"}
         
         # Guardar con failover automático
         if not self._guardar_base_datos(base_datos):

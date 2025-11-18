@@ -1,4 +1,55 @@
-[2025-11-17 22:16:05] Iniciando suite de pruebas
-[2025-11-17 22:16:05] Paso 1: Levantar servicios básicos (GC, Actores)
-unable to get image 'sistema_distribuido-actor_devolucion': Cannot connect to the Docker daemon at unix:///Users/sebastianvargas/.docker/run/docker.sock. Is the docker daemon running?
-[2025-11-17 22:16:06] Fallo en paso 1: Levantar servicios básicos (GC, Actores)
+[2025-11-17 23:58:00] Iniciando suite de pruebas
+[2025-11-17 23:58:00] Paso 1: Levantar servicios básicos (GC, Actores)
+ Container ga  Running
+ Container gc  Running
+ Container actor_ren  Running
+ Container actor_dev  Running
+[2025-11-17 23:58:01] Paso 1 completado: Levantar servicios básicos (GC, Actores)
+[2025-11-17 23:58:01] Esperando inicialización de servicios...
+[2025-11-17 23:58:06] Paso 2: Verificar IPs internas (≥2 computadores)
+Obteniendo IPs internas de los contenedores...
+Obteniendo IP para gc...
+gc IP: 172.18.0.3
+Obteniendo IP para actor_dev...
+actor_dev IP: 172.18.0.5
+Obteniendo IP para actor_ren...
+actor_ren IP: 172.18.0.6
+Obteniendo IP para ps...
+WARNING: Contenedor ps no está corriendo
+Obteniendo IP para tester...
+WARNING: Contenedor tester no está corriendo
+
+Resumen de IPs obtenidas:
+================================
+IP única: 172.18.0.3
+IP única: 172.18.0.5
+IP única: 172.18.0.6
+
+Total de IPs únicas:        3
+Total de contenedores con IP: 3
+Criterio cumplido: ≥2 computadores (IPs distintas)
+
+IPs guardadas en: ./logs/ips.txt
+Verificación de IPs completada
+[2025-11-17 23:58:06] Paso 2 completado: Verificar IPs internas (≥2 computadores)
+[2025-11-17 23:58:06] Paso 3: Verificar que GC esté listo
+Esperando que el Gestor de Carga esté listo...
+Endpoint: tcp://gc:5001
+Máximo 30 intentos con intervalo de 1s
+Intento 1/30: Probando conexión al GC...
+GC responde: {'status': 'ERROR', 'message': 'Operación inválida: TEST_CONNECTION. Solo se permiten PRESTAMO, RENOVACION y DEVOLUCION'}
+GC está listo y respondiendo
+Gestor de Carga está listo después de 1 intentos
+[2025-11-17 23:58:07] Paso 3 completado: Verificar que GC esté listo
+[2025-11-17 23:58:07] Ejecutando Test 1: End-to-end básico
+[2025-11-17 23:58:07] Paso 4: Test end-to-end (sin PS)
+ Container ga  Running
+ Container gc  Running
+============================= test session starts ==============================
+platform linux -- Python 3.10.19, pytest-9.0.1, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /app
+collecting ... collected 3 items
+
+tests/test_end_to_end.py::TestEndToEnd::test_devolucion_end_to_end FAILED [ 33%]
+tests/test_end_to_end.py::TestEndToEnd::test_renovacion_end_to_end 

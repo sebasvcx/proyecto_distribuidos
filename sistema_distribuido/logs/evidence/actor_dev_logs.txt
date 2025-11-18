@@ -1,86 +1,246 @@
-2025-10-04 18:47:24 - ACTOR_DEV - INFO - 🚀 Iniciando Actor de Devolución...
-2025-10-04 18:47:24 - ACTOR_DEV - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
-2025-10-04 18:47:24 - ACTOR_DEV - INFO - 📡 Suscrito al topic 'devolucion'
-2025-10-04 18:47:26 - ACTOR_DEV - INFO - ✅ Actor de Devolución iniciado correctamente
-2025-10-04 18:47:26 - ACTOR_DEV - INFO - 📡 Esperando eventos de devolución...
-2025-10-04 18:47:26 - ACTOR_DEV - INFO - 🔄 Iniciando escucha de eventos de devolución...
-2025-10-04 19:06:40 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:06:40 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L001", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:06:40.573070"}
-2025-10-04 19:06:40 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L001 - Usuario U_TEST_DEV
-2025-10-04 19:06:40 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:06:40 - ACTOR_DEV - INFO - 📚 Libro L001 devuelto por usuario U_TEST_DEV
-2025-10-04 19:06:40 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 3 → 4
-2025-10-04 19:06:40 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:06:40 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#1)
-2025-10-04 19:09:06 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:09:06 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L001", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:09:06.760342"}
-2025-10-04 19:09:06 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L001 - Usuario U_TEST_DEV
-2025-10-04 19:09:06 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:09:06 - ACTOR_DEV - INFO - 📚 Libro L001 devuelto por usuario U_TEST_DEV
-2025-10-04 19:09:06 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 4 → 5
-2025-10-04 19:09:06 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:09:06 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#2)
-2025-10-04 19:11:01 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:11:01 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:11:01.182347"}
-2025-10-04 19:11:01 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:11:01 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:11:01 - ACTOR_DEV - INFO - 📚 Libro L003 devuelto por usuario U_TEST_DEV
-2025-10-04 19:11:01 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 1 → 2
-2025-10-04 19:11:01 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:11:01 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#3)
-2025-10-04 19:11:45 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:11:45 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:11:45.450345"}
-2025-10-04 19:11:45 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:11:45 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:11:45 - ACTOR_DEV - INFO - 📚 Libro L003 devuelto por usuario U_TEST_DEV
-2025-10-04 19:11:45 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 2 → 3
-2025-10-04 19:11:45 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:11:45 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#4)
-2025-10-04 19:12:18 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:12:18 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:12:18.323757"}
-2025-10-04 19:12:18 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:12:18 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:12:18 - ACTOR_DEV - INFO - 📚 Libro L003 devuelto por usuario U_TEST_DEV
-2025-10-04 19:12:18 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 3 → 4
-2025-10-04 19:12:18 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:12:18 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#5)
-2025-10-04 19:12:48 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:12:48 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:12:48.222509"}
-2025-10-04 19:12:48 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:12:48 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:12:48 - ACTOR_DEV - INFO - 📚 Libro L003 devuelto por usuario U_TEST_DEV
-2025-10-04 19:12:48 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 4 → 5
-2025-10-04 19:12:48 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:12:48 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#6)
-2025-10-04 19:13:14 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:13:14 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:13:13.991684"}
-2025-10-04 19:13:14 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:13:14 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:14 - ACTOR_DEV - INFO - 📚 Libro L003 devuelto por usuario U_TEST_DEV
-2025-10-04 19:13:14 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 5 → 6
-2025-10-04 19:13:14 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:14 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#7)
-2025-10-04 19:13:28 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:13:28 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB", "timestamp": "2025-10-04T19:13:28.909694"}
-2025-10-04 19:13:28 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_PUBSUB_TEST_DEV
-2025-10-04 19:13:28 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:28 - ACTOR_DEV - INFO - 📚 Libro L003 devuelto por usuario U_PUBSUB_TEST_DEV
-2025-10-04 19:13:28 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 6 → 7
-2025-10-04 19:13:28 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:28 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#8)
-2025-10-04 19:13:39 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:13:39 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI", "timestamp": "2025-10-04T19:13:39.022643"}
-2025-10-04 19:13:39 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L002 - Usuario U_MULTI_TEST_DEV
-2025-10-04 19:13:39 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:39 - ACTOR_DEV - INFO - 📚 Libro L002 devuelto por usuario U_MULTI_TEST_DEV
-2025-10-04 19:13:39 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 2 → 3
-2025-10-04 19:13:39 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:39 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#9)
-2025-10-04 19:13:45 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
-2025-10-04 19:13:45 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U002", "sede": "SEDE_1", "timestamp": "2025-10-04T19:13:45.719938"}
-2025-10-04 19:13:45 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L002 - Usuario U002
-2025-10-04 19:13:45 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:45 - ACTOR_DEV - INFO - 📚 Libro L002 devuelto por usuario U002
-2025-10-04 19:13:45 - ACTOR_DEV - INFO - 📊 Ejemplares disponibles actualizados: 3 → 4
-2025-10-04 19:13:45 - ACTOR_DEV - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:45 - ACTOR_DEV - INFO - ✅ Devolución procesada exitosamente (#10)
+2025-11-18 03:33:32 - ACTOR_DEV - INFO - 🚀 Iniciando Actor de Devolución...
+2025-11-18 03:33:32 - ACTOR_DEV - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 03:33:32 - ACTOR_DEV - INFO - 📡 Suscrito al topic 'devolucion'
+2025-11-18 03:33:34 - ACTOR_DEV - INFO - ✅ Actor de Devolución iniciado correctamente
+2025-11-18 03:33:34 - ACTOR_DEV - INFO - 📡 Esperando eventos de devolución...
+2025-11-18 03:33:34 - ACTOR_DEV - INFO - 🔄 Iniciando escucha de eventos de devolución...
+2025-11-18 03:33:47 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:33:47 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB", "timestamp": "2025-11-18T03:33:47.142728"}
+2025-11-18 03:33:47 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_PUBSUB_TEST_DEV
+2025-11-18 03:33:47 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:33:47 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:33:57 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:33:57 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI", "timestamp": "2025-11-18T03:33:57.389224"}
+2025-11-18 03:33:57 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L002 - Usuario U_MULTI_TEST_DEV
+2025-11-18 03:33:57 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:33:57 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:09 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:09 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0001", "usuario_id": "U0197", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:09.023398"}
+2025-11-18 03:34:09 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0001 - Usuario U0197
+2025-11-18 03:34:09 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:09 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:10 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:10 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:10.047640"}
+2025-11-18 03:34:10 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0123
+2025-11-18 03:34:10 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:10 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:14 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:14 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0004", "usuario_id": "U1004", "sede": "SEDE_2", "timestamp": "2025-11-18T03:34:14.201997"}
+2025-11-18 03:34:14 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0004 - Usuario U1004
+2025-11-18 03:34:14 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:14 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:15 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:15 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0005", "usuario_id": "U1005", "sede": "SEDE_2", "timestamp": "2025-11-18T03:34:15.235401"}
+2025-11-18 03:34:15 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0005 - Usuario U1005
+2025-11-18 03:34:15 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:15 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:17 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:17 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0008", "usuario_id": "U1007", "sede": "SEDE_2", "timestamp": "2025-11-18T03:34:17.340677"}
+2025-11-18 03:34:17 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0008 - Usuario U1007
+2025-11-18 03:34:17 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:17 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:19 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:19 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0010", "usuario_id": "U1009", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:19.421030"}
+2025-11-18 03:34:19 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0010 - Usuario U1009
+2025-11-18 03:34:19 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:19 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:21 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:21 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:21.504714"}
+2025-11-18 03:34:21 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0123
+2025-11-18 03:34:21 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:21 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:24 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:24 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L9998", "usuario_id": "U9998", "sede": "SEDE_2", "timestamp": "2025-11-18T03:34:24.614838"}
+2025-11-18 03:34:24 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L9998 - Usuario U9998
+2025-11-18 03:34:24 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:24 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:34:26 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:34:26 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U9998", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:26.695755"}
+2025-11-18 03:34:26 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U9998
+2025-11-18 03:34:26 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:26 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:37:53 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:37:53 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-11-18T03:37:53.536182"}
+2025-11-18 03:37:53 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
+2025-11-18 03:37:53 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:37:53 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:43:32 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:43:32 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1", "timestamp": "2025-11-18T03:43:32.861606"}
+2025-11-18 03:43:32 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0403
+2025-11-18 03:43:32 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:43:32 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:44:57 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:44:57 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1", "timestamp": "2025-11-18T03:44:57.040442"}
+2025-11-18 03:44:57 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0403
+2025-11-18 03:44:57 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:44:57 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 03:48:10 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 03:48:10 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1", "timestamp": "2025-11-18T03:48:10.409171"}
+2025-11-18 03:48:10 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0403
+2025-11-18 03:48:10 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:48:10 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:00 - ACTOR_DEV - INFO - 🚀 Iniciando Actor de Devolución...
+2025-11-18 04:22:00 - ACTOR_DEV - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:22:00 - ACTOR_DEV - INFO - 📡 Suscrito al topic 'devolucion'
+2025-11-18 04:22:02 - ACTOR_DEV - INFO - ✅ Actor de Devolución iniciado correctamente
+2025-11-18 04:22:02 - ACTOR_DEV - INFO - 📡 Esperando eventos de devolución...
+2025-11-18 04:22:02 - ACTOR_DEV - INFO - 🔄 Iniciando escucha de eventos de devolución...
+2025-11-18 04:22:20 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:20 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB", "timestamp": "2025-11-18T04:22:20.735112"}
+2025-11-18 04:22:20 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_PUBSUB_TEST_DEV
+2025-11-18 04:22:20 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:20 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:31 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:31 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI", "timestamp": "2025-11-18T04:22:31.035814"}
+2025-11-18 04:22:31 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L002 - Usuario U_MULTI_TEST_DEV
+2025-11-18 04:22:31 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:31 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:40 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:40 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0001", "usuario_id": "U0197", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:40.026298"}
+2025-11-18 04:22:40 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0001 - Usuario U0197
+2025-11-18 04:22:40 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:40 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:41 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:41 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:41.145458"}
+2025-11-18 04:22:41 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0123
+2025-11-18 04:22:41 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:41 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:45 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:45 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0004", "usuario_id": "U1004", "sede": "SEDE_2", "timestamp": "2025-11-18T04:22:45.291650"}
+2025-11-18 04:22:45 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0004 - Usuario U1004
+2025-11-18 04:22:45 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:45 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:46 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:46 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0005", "usuario_id": "U1005", "sede": "SEDE_2", "timestamp": "2025-11-18T04:22:46.334647"}
+2025-11-18 04:22:46 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0005 - Usuario U1005
+2025-11-18 04:22:46 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:46 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:48 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:48 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0008", "usuario_id": "U1007", "sede": "SEDE_2", "timestamp": "2025-11-18T04:22:48.414051"}
+2025-11-18 04:22:48 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0008 - Usuario U1007
+2025-11-18 04:22:48 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:48 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:50 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:50 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0010", "usuario_id": "U1009", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:50.513742"}
+2025-11-18 04:22:50 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0010 - Usuario U1009
+2025-11-18 04:22:50 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:50 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:52 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:52 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:52.570954"}
+2025-11-18 04:22:52 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0123
+2025-11-18 04:22:52 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:52 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:55 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:55 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L9998", "usuario_id": "U9998", "sede": "SEDE_2", "timestamp": "2025-11-18T04:22:55.678905"}
+2025-11-18 04:22:55 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L9998 - Usuario U9998
+2025-11-18 04:22:55 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:55 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:22:57 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:22:57 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U9998", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:57.778980"}
+2025-11-18 04:22:57 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U9998
+2025-11-18 04:22:57 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:57 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:23:32 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:23:32 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-11-18T04:23:32.771641"}
+2025-11-18 04:23:32 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
+2025-11-18 04:23:32 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:23:32 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:32:24 - ACTOR_DEV - INFO - 🚀 Iniciando Actor de Devolución...
+2025-11-18 04:32:24 - ACTOR_DEV - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:32:24 - ACTOR_DEV - INFO - 📡 Suscrito al topic 'devolucion'
+2025-11-18 04:32:26 - ACTOR_DEV - INFO - ✅ Actor de Devolución iniciado correctamente
+2025-11-18 04:32:26 - ACTOR_DEV - INFO - 📡 Esperando eventos de devolución...
+2025-11-18 04:32:26 - ACTOR_DEV - INFO - 🔄 Iniciando escucha de eventos de devolución...
+2025-11-18 04:32:39 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:32:39 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-11-18T04:32:39.926281"}
+2025-11-18 04:32:39 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
+2025-11-18 04:32:39 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:32:39 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:34:50 - ACTOR_DEV - INFO - 🚀 Iniciando Actor de Devolución...
+2025-11-18 04:34:50 - ACTOR_DEV - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:34:50 - ACTOR_DEV - INFO - 📡 Suscrito al topic 'devolucion'
+2025-11-18 04:34:52 - ACTOR_DEV - INFO - ✅ Actor de Devolución iniciado correctamente
+2025-11-18 04:34:52 - ACTOR_DEV - INFO - 📡 Esperando eventos de devolución...
+2025-11-18 04:34:52 - ACTOR_DEV - INFO - 🔄 Iniciando escucha de eventos de devolución...
+2025-11-18 04:35:07 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:35:07 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST", "timestamp": "2025-11-18T04:35:07.352569"}
+2025-11-18 04:35:07 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_TEST_DEV
+2025-11-18 04:35:07 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:35:07 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:36:59 - ACTOR_DEV - INFO - 🚀 Iniciando Actor de Devolución...
+2025-11-18 04:36:59 - ACTOR_DEV - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:36:59 - ACTOR_DEV - INFO - 📡 Suscrito al topic 'devolucion'
+2025-11-18 04:37:01 - ACTOR_DEV - INFO - ✅ Actor de Devolución iniciado correctamente
+2025-11-18 04:37:01 - ACTOR_DEV - INFO - 📡 Esperando eventos de devolución...
+2025-11-18 04:37:01 - ACTOR_DEV - INFO - 🔄 Iniciando escucha de eventos de devolución...
+2025-11-18 04:37:19 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:19 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB", "timestamp": "2025-11-18T04:37:19.767428"}
+2025-11-18 04:37:19 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_PUBSUB_TEST_DEV
+2025-11-18 04:37:19 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:19 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:29 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:29 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI", "timestamp": "2025-11-18T04:37:29.894503"}
+2025-11-18 04:37:29 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L002 - Usuario U_MULTI_TEST_DEV
+2025-11-18 04:37:30 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:30 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:38 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:38 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0001", "usuario_id": "U0197", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:38.732610"}
+2025-11-18 04:37:38 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0001 - Usuario U0197
+2025-11-18 04:37:38 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:38 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:39 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:39 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:39.761079"}
+2025-11-18 04:37:39 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0123
+2025-11-18 04:37:39 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:39 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:43 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:43 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0004", "usuario_id": "U1004", "sede": "SEDE_2", "timestamp": "2025-11-18T04:37:43.914363"}
+2025-11-18 04:37:43 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0004 - Usuario U1004
+2025-11-18 04:37:44 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:44 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:45 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:45 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0005", "usuario_id": "U1005", "sede": "SEDE_2", "timestamp": "2025-11-18T04:37:44.955082"}
+2025-11-18 04:37:45 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0005 - Usuario U1005
+2025-11-18 04:37:45 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:45 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:47 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:47 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0008", "usuario_id": "U1007", "sede": "SEDE_2", "timestamp": "2025-11-18T04:37:47.020346"}
+2025-11-18 04:37:47 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0008 - Usuario U1007
+2025-11-18 04:37:47 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:47 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:49 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:49 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0010", "usuario_id": "U1009", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:49.089756"}
+2025-11-18 04:37:49 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0010 - Usuario U1009
+2025-11-18 04:37:49 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:49 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:51 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:51 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:51.150697"}
+2025-11-18 04:37:51 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U0123
+2025-11-18 04:37:51 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:51 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:54 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:54 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L9998", "usuario_id": "U9998", "sede": "SEDE_2", "timestamp": "2025-11-18T04:37:54.269797"}
+2025-11-18 04:37:54 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L9998 - Usuario U9998
+2025-11-18 04:37:54 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:54 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:37:56 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:37:56 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U9998", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:56.344909"}
+2025-11-18 04:37:56 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L0002 - Usuario U9998
+2025-11-18 04:37:56 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:56 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:38:57 - ACTOR_DEV - INFO - 🚀 Iniciando Actor de Devolución...
+2025-11-18 04:38:57 - ACTOR_DEV - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:38:57 - ACTOR_DEV - INFO - 📡 Suscrito al topic 'devolucion'
+2025-11-18 04:38:59 - ACTOR_DEV - INFO - ✅ Actor de Devolución iniciado correctamente
+2025-11-18 04:38:59 - ACTOR_DEV - INFO - 📡 Esperando eventos de devolución...
+2025-11-18 04:38:59 - ACTOR_DEV - INFO - 🔄 Iniciando escucha de eventos de devolución...
+2025-11-18 04:39:26 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:39:26 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB", "timestamp": "2025-11-18T04:39:26.790276"}
+2025-11-18 04:39:26 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L003 - Usuario U_PUBSUB_TEST_DEV
+2025-11-18 04:39:26 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:39:26 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'
+2025-11-18 04:39:37 - ACTOR_DEV - INFO - 📨 Evento recibido - Topic: devolucion
+2025-11-18 04:39:37 - ACTOR_DEV - INFO - 📄 Datos: {"operacion": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI", "timestamp": "2025-11-18T04:39:36.930450"}
+2025-11-18 04:39:37 - ACTOR_DEV - INFO - 🔄 Procesando devolución: Libro L002 - Usuario U_MULTI_TEST_DEV
+2025-11-18 04:39:37 - ACTOR_DEV - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:39:37 - ACTOR_DEV - ERROR - ❌ Error procesando devolución: 'str' object has no attribute 'get'

@@ -1,105 +1,348 @@
-2025-10-04 18:47:24 - ACTOR_REN - INFO - 🚀 Iniciando Actor de Renovación...
-2025-10-04 18:47:24 - ACTOR_REN - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
-2025-10-04 18:47:24 - ACTOR_REN - INFO - 📡 Suscrito al topic 'renovacion'
-2025-10-04 18:47:26 - ACTOR_REN - INFO - ✅ Actor de Renovación iniciado correctamente
-2025-10-04 18:47:26 - ACTOR_REN - INFO - 📡 Esperando eventos de renovación...
-2025-10-04 18:47:26 - ACTOR_REN - INFO - 🔄 Iniciando escucha de eventos de renovación...
-2025-10-04 19:06:49 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:06:49 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:06:49.731386", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:06:49 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:06:49 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:06:49 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:06:49 - ACTOR_REN - INFO - 📚 Libro L002 renovado por usuario U_TEST_REN
-2025-10-04 19:06:49 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:06:49 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:06:49 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#1)
-2025-10-04 19:09:15 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:09:15 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:09:15.913843", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:09:15 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:09:15 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:09:15 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:09:15 - ACTOR_REN - INFO - 📚 Libro L002 renovado por usuario U_TEST_REN
-2025-10-04 19:09:15 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:09:15 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:09:15 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#2)
-2025-10-04 19:11:10 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:11:10 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L001", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:11:10.278950", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:11:10 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L001 - Usuario U_TEST_REN
-2025-10-04 19:11:10 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:11:10 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:11:10 - ACTOR_REN - INFO - 📚 Libro L001 renovado por usuario U_TEST_REN
-2025-10-04 19:11:10 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:11:10 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:11:10 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#3)
-2025-10-04 19:11:52 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:11:52 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L001", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:11:52.510335", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:11:52 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L001 - Usuario U_TEST_REN
-2025-10-04 19:11:52 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:11:52 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:11:52 - ACTOR_REN - INFO - 📚 Libro L001 renovado por usuario U_TEST_REN
-2025-10-04 19:11:52 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:11:52 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:11:52 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#4)
-2025-10-04 19:12:25 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:12:25 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:12:25.413076", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:12:25 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:12:25 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:12:25 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:12:25 - ACTOR_REN - INFO - 📚 Libro L002 renovado por usuario U_TEST_REN
-2025-10-04 19:12:25 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:12:25 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:12:25 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#5)
-2025-10-04 19:12:55 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:12:55 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:12:55.335173", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:12:55 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:12:55 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:12:55 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:12:55 - ACTOR_REN - INFO - 📚 Libro L002 renovado por usuario U_TEST_REN
-2025-10-04 19:12:55 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:12:55 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:12:55 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#6)
-2025-10-04 19:13:21 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:13:21 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-10-04T19:13:21.087787", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:13:21 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:13:21 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:13:21 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:21 - ACTOR_REN - INFO - 📚 Libro L002 renovado por usuario U_TEST_REN
-2025-10-04 19:13:21 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:13:21 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:21 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#7)
-2025-10-04 19:13:34 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:13:34 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB", "timestamp": "2025-10-04T19:13:33.974334", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:13:34 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L001 - Usuario U_PUBSUB_TEST_REN
-2025-10-04 19:13:34 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:13:34 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:34 - ACTOR_REN - INFO - 📚 Libro L001 renovado por usuario U_PUBSUB_TEST_REN
-2025-10-04 19:13:34 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:13:34 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:34 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#8)
-2025-10-04 19:13:39 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:13:39 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI", "timestamp": "2025-10-04T19:13:39.127944", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:13:39 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L003 - Usuario U_MULTI_TEST_REN
-2025-10-04 19:13:39 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:13:39 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:39 - ACTOR_REN - INFO - 📚 Libro L003 renovado por usuario U_MULTI_TEST_REN
-2025-10-04 19:13:39 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:13:39 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:39 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#9)
-2025-10-04 19:13:44 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:13:44 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L001", "usuario_id": "U001", "sede": "SEDE_1", "timestamp": "2025-10-04T19:13:44.689058", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:13:44 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L001 - Usuario U001
-2025-10-04 19:13:44 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:13:44 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:44 - ACTOR_REN - INFO - 📚 Libro L001 renovado por usuario U001
-2025-10-04 19:13:44 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:13:44 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:44 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#10)
-2025-10-04 19:13:46 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
-2025-10-04 19:13:46 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L003", "usuario_id": "U003", "sede": "SEDE_1", "timestamp": "2025-10-04T19:13:46.735653", "nueva_fecha_devolucion": "2025-10-11"}
-2025-10-04 19:13:46 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L003 - Usuario U003
-2025-10-04 19:13:46 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-10-11
-2025-10-04 19:13:46 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
-2025-10-04 19:13:46 - ACTOR_REN - INFO - 📚 Libro L003 renovado por usuario U003
-2025-10-04 19:13:46 - ACTOR_REN - INFO - 📅 Fecha de devolución actualizada: 2025-10-11 → 2025-10-11
-2025-10-04 19:13:46 - ACTOR_REN - INFO - 💾 Base de datos de libros actualizada y guardada
-2025-10-04 19:13:46 - ACTOR_REN - INFO - ✅ Renovación procesada exitosamente (#11)
+2025-11-18 03:33:32 - ACTOR_REN - INFO - 🚀 Iniciando Actor de Renovación...
+2025-11-18 03:33:32 - ACTOR_REN - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 03:33:32 - ACTOR_REN - INFO - 📡 Suscrito al topic 'renovacion'
+2025-11-18 03:33:34 - ACTOR_REN - INFO - ✅ Actor de Renovación iniciado correctamente
+2025-11-18 03:33:34 - ACTOR_REN - INFO - 📡 Esperando eventos de renovación...
+2025-11-18 03:33:34 - ACTOR_REN - INFO - 🔄 Iniciando escucha de eventos de renovación...
+2025-11-18 03:33:52 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:33:52 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB", "timestamp": "2025-11-18T03:33:52.324060", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:33:52 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L001 - Usuario U_PUBSUB_TEST_REN
+2025-11-18 03:33:52 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:33:52 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:33:52 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:33:57 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:33:57 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI", "timestamp": "2025-11-18T03:33:57.490984", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:33:57 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L003 - Usuario U_MULTI_TEST_REN
+2025-11-18 03:33:57 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:33:57 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:33:57 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:05 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:05 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:05.933985", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:05 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0001 - Usuario U0231
+2025-11-18 03:34:05 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:06 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:06 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:07 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:07 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:06.974704", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:07 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 03:34:07 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:07 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:07 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:08 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:08 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0003", "usuario_id": "U0789", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:07.986336", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:08 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0003 - Usuario U0789
+2025-11-18 03:34:08 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:08 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:08 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:11 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:11 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0004", "usuario_id": "U1001", "sede": "SEDE_2", "timestamp": "2025-11-18T03:34:11.090541", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:11 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0004 - Usuario U1001
+2025-11-18 03:34:11 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:11 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:11 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:12 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:12 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0005", "usuario_id": "U1002", "sede": "SEDE_2", "timestamp": "2025-11-18T03:34:12.138220", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:12 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0005 - Usuario U1002
+2025-11-18 03:34:12 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:12 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:12 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:13 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:13 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0006", "usuario_id": "U1003", "sede": "SEDE_2", "timestamp": "2025-11-18T03:34:13.177639", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:13 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0006 - Usuario U1003
+2025-11-18 03:34:13 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:13 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:13 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:16 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:16 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0007", "usuario_id": "U1006", "sede": "SEDE_2", "timestamp": "2025-11-18T03:34:16.283100", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:16 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0007 - Usuario U1006
+2025-11-18 03:34:16 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:16 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:16 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:18 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:18 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0009", "usuario_id": "U1008", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:18.380246", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:18 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0009 - Usuario U1008
+2025-11-18 03:34:18 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:18 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:18 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:20 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:20 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:20.464956", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:20 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 03:34:20 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:20 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:20 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:22 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:22 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:22.540650", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:22 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 03:34:22 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:22 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:22 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:23 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:23 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L9999", "usuario_id": "U9999", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:23.589279", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:23 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L9999 - Usuario U9999
+2025-11-18 03:34:23 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:23 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:23 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:34:25 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:34:25 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0001", "usuario_id": "U9999", "sede": "SEDE_1", "timestamp": "2025-11-18T03:34:25.653088", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:34:25 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0001 - Usuario U9999
+2025-11-18 03:34:25 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:34:25 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:34:25 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:43:40 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:43:40 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1", "timestamp": "2025-11-18T03:43:40.171386", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:43:40 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0403
+2025-11-18 03:43:40 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:43:40 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:43:40 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:45:04 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:45:04 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1", "timestamp": "2025-11-18T03:45:04.364365", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:45:04 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0403
+2025-11-18 03:45:04 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:45:04 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:45:04 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 03:48:25 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 03:48:25 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1", "timestamp": "2025-11-18T03:48:25.497725", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 03:48:25 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0403
+2025-11-18 03:48:25 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 03:48:25 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 03:48:25 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:00 - ACTOR_REN - INFO - 🚀 Iniciando Actor de Renovación...
+2025-11-18 04:22:00 - ACTOR_REN - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:22:00 - ACTOR_REN - INFO - 📡 Suscrito al topic 'renovacion'
+2025-11-18 04:22:02 - ACTOR_REN - INFO - ✅ Actor de Renovación iniciado correctamente
+2025-11-18 04:22:02 - ACTOR_REN - INFO - 📡 Esperando eventos de renovación...
+2025-11-18 04:22:02 - ACTOR_REN - INFO - 🔄 Iniciando escucha de eventos de renovación...
+2025-11-18 04:22:26 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:26 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB", "timestamp": "2025-11-18T04:22:25.955453", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:26 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L001 - Usuario U_PUBSUB_TEST_REN
+2025-11-18 04:22:26 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:26 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:26 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:31 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:31 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI", "timestamp": "2025-11-18T04:22:31.138468", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:31 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L003 - Usuario U_MULTI_TEST_REN
+2025-11-18 04:22:31 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:31 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:31 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:36 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:36 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:36.924082", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:36 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0001 - Usuario U0231
+2025-11-18 04:22:36 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:36 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:36 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:37 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:37 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:37.965040", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:37 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 04:22:37 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:38 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:38 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:39 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:39 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0003", "usuario_id": "U0789", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:38.987990", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:39 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0003 - Usuario U0789
+2025-11-18 04:22:39 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:39 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:39 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:42 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:42 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0004", "usuario_id": "U1001", "sede": "SEDE_2", "timestamp": "2025-11-18T04:22:42.176182", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:42 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0004 - Usuario U1001
+2025-11-18 04:22:42 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:42 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:42 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:43 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:43 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0005", "usuario_id": "U1002", "sede": "SEDE_2", "timestamp": "2025-11-18T04:22:43.213770", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:43 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0005 - Usuario U1002
+2025-11-18 04:22:43 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:43 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:43 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:44 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:44 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0006", "usuario_id": "U1003", "sede": "SEDE_2", "timestamp": "2025-11-18T04:22:44.247940", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:44 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0006 - Usuario U1003
+2025-11-18 04:22:44 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:44 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:44 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:47 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:47 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0007", "usuario_id": "U1006", "sede": "SEDE_2", "timestamp": "2025-11-18T04:22:47.374007", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:47 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0007 - Usuario U1006
+2025-11-18 04:22:47 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:47 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:47 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:49 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:49 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0009", "usuario_id": "U1008", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:49.459856", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:49 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0009 - Usuario U1008
+2025-11-18 04:22:49 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:49 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:49 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:51 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:51 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:51.541604", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:51 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 04:22:51 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:51 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:51 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:53 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:53 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:53.608616", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:53 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 04:22:53 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:53 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:53 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:54 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:54 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L9999", "usuario_id": "U9999", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:54.640751", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:54 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L9999 - Usuario U9999
+2025-11-18 04:22:54 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:54 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:54 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:22:56 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:22:56 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0001", "usuario_id": "U9999", "sede": "SEDE_1", "timestamp": "2025-11-18T04:22:56.740865", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:22:56 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0001 - Usuario U9999
+2025-11-18 04:22:56 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:22:56 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:22:56 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:23:40 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:23:40 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-11-18T04:23:40.208025", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:23:40 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L002 - Usuario U_TEST_REN
+2025-11-18 04:23:40 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:23:40 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:23:40 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:32:24 - ACTOR_REN - INFO - 🚀 Iniciando Actor de Renovación...
+2025-11-18 04:32:24 - ACTOR_REN - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:32:24 - ACTOR_REN - INFO - 📡 Suscrito al topic 'renovacion'
+2025-11-18 04:32:26 - ACTOR_REN - INFO - ✅ Actor de Renovación iniciado correctamente
+2025-11-18 04:32:26 - ACTOR_REN - INFO - 📡 Esperando eventos de renovación...
+2025-11-18 04:32:26 - ACTOR_REN - INFO - 🔄 Iniciando escucha de eventos de renovación...
+2025-11-18 04:32:47 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:32:47 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-11-18T04:32:47.297052", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:32:47 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L002 - Usuario U_TEST_REN
+2025-11-18 04:32:47 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:32:47 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:32:47 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:34:50 - ACTOR_REN - INFO - 🚀 Iniciando Actor de Renovación...
+2025-11-18 04:34:50 - ACTOR_REN - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:34:50 - ACTOR_REN - INFO - 📡 Suscrito al topic 'renovacion'
+2025-11-18 04:34:52 - ACTOR_REN - INFO - ✅ Actor de Renovación iniciado correctamente
+2025-11-18 04:34:52 - ACTOR_REN - INFO - 📡 Esperando eventos de renovación...
+2025-11-18 04:34:52 - ACTOR_REN - INFO - 🔄 Iniciando escucha de eventos de renovación...
+2025-11-18 04:35:14 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:35:14 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST", "timestamp": "2025-11-18T04:35:14.716400", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:35:14 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L002 - Usuario U_TEST_REN
+2025-11-18 04:35:14 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:35:14 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:35:14 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:36:59 - ACTOR_REN - INFO - 🚀 Iniciando Actor de Renovación...
+2025-11-18 04:36:59 - ACTOR_REN - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:36:59 - ACTOR_REN - INFO - 📡 Suscrito al topic 'renovacion'
+2025-11-18 04:37:01 - ACTOR_REN - INFO - ✅ Actor de Renovación iniciado correctamente
+2025-11-18 04:37:01 - ACTOR_REN - INFO - 📡 Esperando eventos de renovación...
+2025-11-18 04:37:01 - ACTOR_REN - INFO - 🔄 Iniciando escucha de eventos de renovación...
+2025-11-18 04:37:24 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:24 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB", "timestamp": "2025-11-18T04:37:24.830929", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:24 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L001 - Usuario U_PUBSUB_TEST_REN
+2025-11-18 04:37:24 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:24 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:24 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:30 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:30 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI", "timestamp": "2025-11-18T04:37:29.998585", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:30 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L003 - Usuario U_MULTI_TEST_REN
+2025-11-18 04:37:30 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:30 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:30 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:35 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:35 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:35.648856", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:35 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0001 - Usuario U0231
+2025-11-18 04:37:35 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:35 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:35 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:36 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:36 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:36.686004", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:36 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 04:37:36 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:36 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:36 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:37 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:37 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0003", "usuario_id": "U0789", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:37.702700", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:37 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0003 - Usuario U0789
+2025-11-18 04:37:37 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:37 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:37 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:40 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:40 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0004", "usuario_id": "U1001", "sede": "SEDE_2", "timestamp": "2025-11-18T04:37:40.794574", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:40 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0004 - Usuario U1001
+2025-11-18 04:37:40 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:40 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:40 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:41 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:41 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0005", "usuario_id": "U1002", "sede": "SEDE_2", "timestamp": "2025-11-18T04:37:41.837705", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:41 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0005 - Usuario U1002
+2025-11-18 04:37:41 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:41 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:41 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:42 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:42 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0006", "usuario_id": "U1003", "sede": "SEDE_2", "timestamp": "2025-11-18T04:37:42.875762", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:42 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0006 - Usuario U1003
+2025-11-18 04:37:42 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:42 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:42 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:46 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:46 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0007", "usuario_id": "U1006", "sede": "SEDE_2", "timestamp": "2025-11-18T04:37:45.992697", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:46 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0007 - Usuario U1006
+2025-11-18 04:37:46 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:46 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:46 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:48 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:48 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0009", "usuario_id": "U1008", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:48.054997", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:48 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0009 - Usuario U1008
+2025-11-18 04:37:48 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:48 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:48 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:50 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:50 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:50.108121", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:50 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 04:37:50 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:50 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:50 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:52 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:52 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:52.189046", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:52 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 04:37:52 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:52 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:52 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:53 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:53 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L9999", "usuario_id": "U9999", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:53.224439", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:53 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L9999 - Usuario U9999
+2025-11-18 04:37:53 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:53 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:53 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:37:55 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:37:55 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0001", "usuario_id": "U9999", "sede": "SEDE_1", "timestamp": "2025-11-18T04:37:55.303833", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:37:55 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0001 - Usuario U9999
+2025-11-18 04:37:55 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:37:55 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:37:55 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:38:57 - ACTOR_REN - INFO - 🚀 Iniciando Actor de Renovación...
+2025-11-18 04:38:57 - ACTOR_REN - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5002
+2025-11-18 04:38:57 - ACTOR_REN - INFO - 📡 Suscrito al topic 'renovacion'
+2025-11-18 04:38:59 - ACTOR_REN - INFO - ✅ Actor de Renovación iniciado correctamente
+2025-11-18 04:38:59 - ACTOR_REN - INFO - 📡 Esperando eventos de renovación...
+2025-11-18 04:38:59 - ACTOR_REN - INFO - 🔄 Iniciando escucha de eventos de renovación...
+2025-11-18 04:39:31 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:39:31 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB", "timestamp": "2025-11-18T04:39:31.863546", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:39:31 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L001 - Usuario U_PUBSUB_TEST_REN
+2025-11-18 04:39:31 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:39:31 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:39:31 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:39:37 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:39:37 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI", "timestamp": "2025-11-18T04:39:37.033113", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:39:37 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L003 - Usuario U_MULTI_TEST_REN
+2025-11-18 04:39:37 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:39:37 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:39:37 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:39:42 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:39:42 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1", "timestamp": "2025-11-18T04:39:42.716081", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:39:42 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0001 - Usuario U0231
+2025-11-18 04:39:42 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:39:42 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:39:42 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'
+2025-11-18 04:39:43 - ACTOR_REN - INFO - 📨 Evento recibido - Topic: renovacion
+2025-11-18 04:39:43 - ACTOR_REN - INFO - 📄 Datos: {"operacion": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1", "timestamp": "2025-11-18T04:39:43.745877", "nueva_fecha_devolucion": "2025-11-25"}
+2025-11-18 04:39:43 - ACTOR_REN - INFO - 🔄 Procesando renovación: Libro L0002 - Usuario U0456
+2025-11-18 04:39:43 - ACTOR_REN - INFO - 📅 Nueva fecha de devolución: 2025-11-25
+2025-11-18 04:39:43 - ACTOR_REN - INFO - 📚 Base de datos de libros cargada: 3 libros
+2025-11-18 04:39:43 - ACTOR_REN - ERROR - ❌ Error procesando renovación: 'str' object has no attribute 'get'

@@ -1,113 +1,462 @@
-2025-10-04 18:47:24 - GC - INFO - 🚀 Iniciando Gestor de Carga...
-2025-10-04 18:47:24 - GC - INFO - ✅ Socket REP inicializado en tcp://0.0.0.0:5001
-2025-10-04 18:47:24 - GC - INFO - ✅ Socket PUB inicializado en tcp://0.0.0.0:5002
-2025-10-04 18:47:25 - GC - INFO - ✅ Gestor de Carga iniciado correctamente
-2025-10-04 18:47:25 - GC - INFO - 📊 Esperando solicitudes en puerto 5001...
-2025-10-04 18:47:25 - GC - INFO - 📡 Listo para publicar eventos en puerto 5002...
-2025-10-04 18:47:25 - GC - INFO - 🔄 Iniciando manejo de solicitudes...
-2025-10-04 19:01:54 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
-2025-10-04 19:01:54 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:06:27 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
-2025-10-04 19:06:27 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:06:37 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
-2025-10-04 19:06:37 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:06:40 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L001", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
-2025-10-04 19:06:40 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L001', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:06:40.573070'}
-2025-10-04 19:06:40 - GC - INFO - 📝 Operación #1 procesada: DEVOLUCION - Libro L001 - Usuario U_TEST_DEV
-2025-10-04 19:06:40 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L001"}
-2025-10-04 19:06:49 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
-2025-10-04 19:06:49 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L002', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:06:49.731386', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:06:49 - GC - INFO - 📝 Operación #2 procesada: RENOVACION - Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:06:49 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L002"}
-2025-10-04 19:06:56 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
-2025-10-04 19:06:56 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:09:06 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L001", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
-2025-10-04 19:09:06 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L001', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:09:06.760342'}
-2025-10-04 19:09:06 - GC - INFO - 📝 Operación #3 procesada: DEVOLUCION - Libro L001 - Usuario U_TEST_DEV
-2025-10-04 19:09:06 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L001"}
-2025-10-04 19:09:15 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
-2025-10-04 19:09:15 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L002', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:09:15.913843', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:09:15 - GC - INFO - 📝 Operación #4 procesada: RENOVACION - Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:09:15 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L002"}
-2025-10-04 19:09:22 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
-2025-10-04 19:09:22 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:11:01 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
-2025-10-04 19:11:01 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:11:01.182347'}
-2025-10-04 19:11:01 - GC - INFO - 📝 Operación #5 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:11:01 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
-2025-10-04 19:11:10 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L001", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
-2025-10-04 19:11:10 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L001', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:11:10.278950', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:11:10 - GC - INFO - 📝 Operación #6 procesada: RENOVACION - Libro L001 - Usuario U_TEST_REN
-2025-10-04 19:11:10 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L001"}
-2025-10-04 19:11:17 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
-2025-10-04 19:11:17 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:11:45 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
-2025-10-04 19:11:45 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:11:45.450345'}
-2025-10-04 19:11:45 - GC - INFO - 📝 Operación #7 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:11:45 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
-2025-10-04 19:11:52 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L001", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
-2025-10-04 19:11:52 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L001', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:11:52.510335', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:11:52 - GC - INFO - 📝 Operación #8 procesada: RENOVACION - Libro L001 - Usuario U_TEST_REN
-2025-10-04 19:11:52 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L001"}
-2025-10-04 19:11:57 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
-2025-10-04 19:11:57 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:12:18 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
-2025-10-04 19:12:18 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:12:18.323757'}
-2025-10-04 19:12:18 - GC - INFO - 📝 Operación #9 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:12:18 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
-2025-10-04 19:12:25 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
-2025-10-04 19:12:25 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L002', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:12:25.413076', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:12:25 - GC - INFO - 📝 Operación #10 procesada: RENOVACION - Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:12:25 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L002"}
-2025-10-04 19:12:30 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
-2025-10-04 19:12:30 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:12:48 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
-2025-10-04 19:12:48 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:12:48.222509'}
-2025-10-04 19:12:48 - GC - INFO - 📝 Operación #11 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:12:48 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
-2025-10-04 19:12:55 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
-2025-10-04 19:12:55 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L002', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:12:55.335173', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:12:55 - GC - INFO - 📝 Operación #12 procesada: RENOVACION - Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:12:55 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L002"}
-2025-10-04 19:13:00 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
-2025-10-04 19:13:00 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:13:11 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
-2025-10-04 19:13:11 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:13:13 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
-2025-10-04 19:13:13 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:13:13.991684'}
-2025-10-04 19:13:13 - GC - INFO - 📝 Operación #13 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
-2025-10-04 19:13:13 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
-2025-10-04 19:13:21 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
-2025-10-04 19:13:21 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L002', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-10-04T19:13:21.087787', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:13:21 - GC - INFO - 📝 Operación #14 procesada: RENOVACION - Libro L002 - Usuario U_TEST_REN
-2025-10-04 19:13:21 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L002"}
-2025-10-04 19:13:26 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
-2025-10-04 19:13:26 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
-2025-10-04 19:13:28 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB"}
-2025-10-04 19:13:28 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_PUBSUB_TEST_DEV', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-10-04T19:13:28.909694'}
-2025-10-04 19:13:28 - GC - INFO - 📝 Operación #15 procesada: DEVOLUCION - Libro L003 - Usuario U_PUBSUB_TEST_DEV
-2025-10-04 19:13:28 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
-2025-10-04 19:13:33 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB"}
-2025-10-04 19:13:33 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L001', 'usuario_id': 'U_PUBSUB_TEST_REN', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-10-04T19:13:33.974334', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:13:33 - GC - INFO - 📝 Operación #16 procesada: RENOVACION - Libro L001 - Usuario U_PUBSUB_TEST_REN
-2025-10-04 19:13:33 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L001"}
-2025-10-04 19:13:39 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI"}
-2025-10-04 19:13:39 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L002', 'usuario_id': 'U_MULTI_TEST_DEV', 'sede': 'SEDE_MULTI', 'timestamp': '2025-10-04T19:13:39.022643'}
-2025-10-04 19:13:39 - GC - INFO - 📝 Operación #17 procesada: DEVOLUCION - Libro L002 - Usuario U_MULTI_TEST_DEV
-2025-10-04 19:13:39 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L002"}
-2025-10-04 19:13:39 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI"}
-2025-10-04 19:13:39 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L003', 'usuario_id': 'U_MULTI_TEST_REN', 'sede': 'SEDE_MULTI', 'timestamp': '2025-10-04T19:13:39.127944', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:13:39 - GC - INFO - 📝 Operación #18 procesada: RENOVACION - Libro L003 - Usuario U_MULTI_TEST_REN
-2025-10-04 19:13:39 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L003"}
-2025-10-04 19:13:44 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L001", "usuario_id": "U001", "sede": "SEDE_1"}
-2025-10-04 19:13:44 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L001', 'usuario_id': 'U001', 'sede': 'SEDE_1', 'timestamp': '2025-10-04T19:13:44.689058', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:13:44 - GC - INFO - 📝 Operación #19 procesada: RENOVACION - Libro L001 - Usuario U001
-2025-10-04 19:13:44 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L001"}
-2025-10-04 19:13:45 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U002", "sede": "SEDE_1"}
-2025-10-04 19:13:45 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L002', 'usuario_id': 'U002', 'sede': 'SEDE_1', 'timestamp': '2025-10-04T19:13:45.719938'}
-2025-10-04 19:13:45 - GC - INFO - 📝 Operación #20 procesada: DEVOLUCION - Libro L002 - Usuario U002
-2025-10-04 19:13:45 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L002"}
-2025-10-04 19:13:46 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L003", "usuario_id": "U003", "sede": "SEDE_1"}
-2025-10-04 19:13:46 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L003', 'usuario_id': 'U003', 'sede': 'SEDE_1', 'timestamp': '2025-10-04T19:13:46.735653', 'nueva_fecha_devolucion': '2025-10-11'}
-2025-10-04 19:13:46 - GC - INFO - 📝 Operación #21 procesada: RENOVACION - Libro L003 - Usuario U003
-2025-10-04 19:13:46 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L003"}
+2025-11-18 03:33:32 - GC - INFO - 🚀 Iniciando Gestor de Carga...
+2025-11-18 03:33:32 - GC - INFO - ✅ Socket REP inicializado en tcp://0.0.0.0:5001
+2025-11-18 03:33:32 - GC - INFO - ✅ Socket PUB inicializado en tcp://0.0.0.0:5002
+2025-11-18 03:33:33 - GC - INFO - ✅ Gestor de Carga iniciado correctamente
+2025-11-18 03:33:33 - GC - INFO - 📊 Esperando solicitudes en puerto 5001...
+2025-11-18 03:33:33 - GC - INFO - 📡 Listo para publicar eventos en puerto 5002...
+2025-11-18 03:33:33 - GC - INFO - 🔄 Iniciando manejo de solicitudes...
+2025-11-18 03:33:42 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 03:33:42 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:33:44 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 03:33:44 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:33:47 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB"}
+2025-11-18 03:33:47 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_PUBSUB_TEST_DEV', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-11-18T03:33:47.142728'}
+2025-11-18 03:33:47 - GC - INFO - 📝 Operación #1 procesada: DEVOLUCION - Libro L003 - Usuario U_PUBSUB_TEST_DEV
+2025-11-18 03:33:47 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
+2025-11-18 03:33:52 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB"}
+2025-11-18 03:33:52 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L001', 'usuario_id': 'U_PUBSUB_TEST_REN', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-11-18T03:33:52.324060', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:33:52 - GC - INFO - 📝 Operación #2 procesada: RENOVACION - Libro L001 - Usuario U_PUBSUB_TEST_REN
+2025-11-18 03:33:52 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L001"}
+2025-11-18 03:33:57 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI"}
+2025-11-18 03:33:57 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L002', 'usuario_id': 'U_MULTI_TEST_DEV', 'sede': 'SEDE_MULTI', 'timestamp': '2025-11-18T03:33:57.389224'}
+2025-11-18 03:33:57 - GC - INFO - 📝 Operación #3 procesada: DEVOLUCION - Libro L002 - Usuario U_MULTI_TEST_DEV
+2025-11-18 03:33:57 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L002"}
+2025-11-18 03:33:57 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI"}
+2025-11-18 03:33:57 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L003', 'usuario_id': 'U_MULTI_TEST_REN', 'sede': 'SEDE_MULTI', 'timestamp': '2025-11-18T03:33:57.490984', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:33:57 - GC - INFO - 📝 Operación #4 procesada: RENOVACION - Libro L003 - Usuario U_MULTI_TEST_REN
+2025-11-18 03:33:57 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L003"}
+2025-11-18 03:34:05 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1"}
+2025-11-18 03:34:05 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0001', 'usuario_id': 'U0231', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:05.933985', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:05 - GC - INFO - 📝 Operación #5 procesada: RENOVACION - Libro L0001 - Usuario U0231
+2025-11-18 03:34:05 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 03:34:06 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 03:34:06 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:06.974704', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:06 - GC - INFO - 📝 Operación #6 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 03:34:06 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 03:34:07 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0003", "usuario_id": "U0789", "sede": "SEDE_1"}
+2025-11-18 03:34:07 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0003', 'usuario_id': 'U0789', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:07.986336', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:07 - GC - INFO - 📝 Operación #7 procesada: RENOVACION - Libro L0003 - Usuario U0789
+2025-11-18 03:34:07 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0003"}
+2025-11-18 03:34:09 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0001", "usuario_id": "U0197", "sede": "SEDE_1"}
+2025-11-18 03:34:09 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0001', 'usuario_id': 'U0197', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:09.023398'}
+2025-11-18 03:34:09 - GC - INFO - 📝 Operación #8 procesada: DEVOLUCION - Libro L0001 - Usuario U0197
+2025-11-18 03:34:09 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0001"}
+2025-11-18 03:34:10 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1"}
+2025-11-18 03:34:10 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0123', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:10.047640'}
+2025-11-18 03:34:10 - GC - INFO - 📝 Operación #9 procesada: DEVOLUCION - Libro L0002 - Usuario U0123
+2025-11-18 03:34:10 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 03:34:11 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0004", "usuario_id": "U1001", "sede": "SEDE_2"}
+2025-11-18 03:34:11 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0004', 'usuario_id': 'U1001', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T03:34:11.090541', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:11 - GC - INFO - 📝 Operación #10 procesada: RENOVACION - Libro L0004 - Usuario U1001
+2025-11-18 03:34:11 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0004"}
+2025-11-18 03:34:12 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0005", "usuario_id": "U1002", "sede": "SEDE_2"}
+2025-11-18 03:34:12 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0005', 'usuario_id': 'U1002', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T03:34:12.138220', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:12 - GC - INFO - 📝 Operación #11 procesada: RENOVACION - Libro L0005 - Usuario U1002
+2025-11-18 03:34:12 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0005"}
+2025-11-18 03:34:13 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0006", "usuario_id": "U1003", "sede": "SEDE_2"}
+2025-11-18 03:34:13 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0006', 'usuario_id': 'U1003', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T03:34:13.177639', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:13 - GC - INFO - 📝 Operación #12 procesada: RENOVACION - Libro L0006 - Usuario U1003
+2025-11-18 03:34:13 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0006"}
+2025-11-18 03:34:14 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0004", "usuario_id": "U1004", "sede": "SEDE_2"}
+2025-11-18 03:34:14 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0004', 'usuario_id': 'U1004', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T03:34:14.201997'}
+2025-11-18 03:34:14 - GC - INFO - 📝 Operación #13 procesada: DEVOLUCION - Libro L0004 - Usuario U1004
+2025-11-18 03:34:14 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0004"}
+2025-11-18 03:34:15 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0005", "usuario_id": "U1005", "sede": "SEDE_2"}
+2025-11-18 03:34:15 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0005', 'usuario_id': 'U1005', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T03:34:15.235401'}
+2025-11-18 03:34:15 - GC - INFO - 📝 Operación #14 procesada: DEVOLUCION - Libro L0005 - Usuario U1005
+2025-11-18 03:34:15 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0005"}
+2025-11-18 03:34:16 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0007", "usuario_id": "U1006", "sede": "SEDE_2"}
+2025-11-18 03:34:16 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0007', 'usuario_id': 'U1006', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T03:34:16.283100', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:16 - GC - INFO - 📝 Operación #15 procesada: RENOVACION - Libro L0007 - Usuario U1006
+2025-11-18 03:34:16 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0007"}
+2025-11-18 03:34:17 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0008", "usuario_id": "U1007", "sede": "SEDE_2"}
+2025-11-18 03:34:17 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0008', 'usuario_id': 'U1007', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T03:34:17.340677'}
+2025-11-18 03:34:17 - GC - INFO - 📝 Operación #16 procesada: DEVOLUCION - Libro L0008 - Usuario U1007
+2025-11-18 03:34:17 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0008"}
+2025-11-18 03:34:18 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0009", "usuario_id": "U1008", "sede": "SEDE_1"}
+2025-11-18 03:34:18 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0009', 'usuario_id': 'U1008', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:18.380246', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:18 - GC - INFO - 📝 Operación #17 procesada: RENOVACION - Libro L0009 - Usuario U1008
+2025-11-18 03:34:18 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0009"}
+2025-11-18 03:34:19 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0010", "usuario_id": "U1009", "sede": "SEDE_1"}
+2025-11-18 03:34:19 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0010', 'usuario_id': 'U1009', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:19.421030'}
+2025-11-18 03:34:19 - GC - INFO - 📝 Operación #18 procesada: DEVOLUCION - Libro L0010 - Usuario U1009
+2025-11-18 03:34:19 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0010"}
+2025-11-18 03:34:20 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 03:34:20 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:20.464956', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:20 - GC - INFO - 📝 Operación #19 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 03:34:20 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 03:34:21 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1"}
+2025-11-18 03:34:21 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0123', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:21.504714'}
+2025-11-18 03:34:21 - GC - INFO - 📝 Operación #20 procesada: DEVOLUCION - Libro L0002 - Usuario U0123
+2025-11-18 03:34:21 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 03:34:22 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 03:34:22 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:22.540650', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:22 - GC - INFO - 📝 Operación #21 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 03:34:22 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 03:34:23 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L9999", "usuario_id": "U9999", "sede": "SEDE_1"}
+2025-11-18 03:34:23 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L9999', 'usuario_id': 'U9999', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:23.589279', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:23 - GC - INFO - 📝 Operación #22 procesada: RENOVACION - Libro L9999 - Usuario U9999
+2025-11-18 03:34:23 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L9999"}
+2025-11-18 03:34:24 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L9998", "usuario_id": "U9998", "sede": "SEDE_2"}
+2025-11-18 03:34:24 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L9998', 'usuario_id': 'U9998', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T03:34:24.614838'}
+2025-11-18 03:34:24 - GC - INFO - 📝 Operación #23 procesada: DEVOLUCION - Libro L9998 - Usuario U9998
+2025-11-18 03:34:24 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L9998"}
+2025-11-18 03:34:25 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U9999", "sede": "SEDE_1"}
+2025-11-18 03:34:25 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0001', 'usuario_id': 'U9999', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:25.653088', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:34:25 - GC - INFO - 📝 Operación #24 procesada: RENOVACION - Libro L0001 - Usuario U9999
+2025-11-18 03:34:25 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 03:34:26 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U9998", "sede": "SEDE_1"}
+2025-11-18 03:34:26 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U9998', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:34:26.695755'}
+2025-11-18 03:34:26 - GC - INFO - 📝 Operación #25 procesada: DEVOLUCION - Libro L0002 - Usuario U9998
+2025-11-18 03:34:26 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 03:37:50 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 03:37:50 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:37:53 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
+2025-11-18 03:37:53 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-11-18T03:37:53.536182'}
+2025-11-18 03:37:53 - GC - INFO - 📝 Operación #26 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
+2025-11-18 03:37:53 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
+2025-11-18 03:37:58 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 03:37:58 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:43:29 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 03:43:29 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:43:32 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1"}
+2025-11-18 03:43:32 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0403', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:43:32.861606'}
+2025-11-18 03:43:32 - GC - INFO - 📝 Operación #27 procesada: DEVOLUCION - Libro L0002 - Usuario U0403
+2025-11-18 03:43:32 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 03:43:40 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1"}
+2025-11-18 03:43:40 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0403', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:43:40.171386', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:43:40 - GC - INFO - 📝 Operación #28 procesada: RENOVACION - Libro L0002 - Usuario U0403
+2025-11-18 03:43:40 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 03:43:45 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 03:43:45 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:44:54 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 03:44:54 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:44:57 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1"}
+2025-11-18 03:44:57 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0403', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:44:57.040442'}
+2025-11-18 03:44:57 - GC - INFO - 📝 Operación #29 procesada: DEVOLUCION - Libro L0002 - Usuario U0403
+2025-11-18 03:44:57 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 03:45:04 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1"}
+2025-11-18 03:45:04 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0403', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:45:04.364365', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:45:04 - GC - INFO - 📝 Operación #30 procesada: RENOVACION - Libro L0002 - Usuario U0403
+2025-11-18 03:45:04 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 03:45:09 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 03:45:09 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:48:07 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 03:48:07 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 03:48:10 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1"}
+2025-11-18 03:48:10 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0403', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:48:10.409171'}
+2025-11-18 03:48:10 - GC - INFO - 📝 Operación #31 procesada: DEVOLUCION - Libro L0002 - Usuario U0403
+2025-11-18 03:48:10 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 03:48:25 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0403", "sede": "SEDE_1"}
+2025-11-18 03:48:25 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0403', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T03:48:25.497725', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 03:48:25 - GC - INFO - 📝 Operación #32 procesada: RENOVACION - Libro L0002 - Usuario U0403
+2025-11-18 03:48:25 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 03:48:38 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 03:48:38 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:22:00 - GC - INFO - 🚀 Iniciando Gestor de Carga...
+2025-11-18 04:22:00 - GC - INFO - ✅ Socket REP inicializado en tcp://0.0.0.0:5001
+2025-11-18 04:22:00 - GC - INFO - ✅ Socket PUB inicializado en tcp://0.0.0.0:5002
+2025-11-18 04:22:01 - GC - INFO - ✅ Gestor de Carga iniciado correctamente
+2025-11-18 04:22:01 - GC - INFO - 📊 Esperando solicitudes en puerto 5001...
+2025-11-18 04:22:01 - GC - INFO - 📡 Listo para publicar eventos en puerto 5002...
+2025-11-18 04:22:01 - GC - INFO - 🔄 Iniciando manejo de solicitudes...
+2025-11-18 04:22:16 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 04:22:16 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:22:17 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 04:22:17 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:22:20 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB"}
+2025-11-18 04:22:20 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_PUBSUB_TEST_DEV', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-11-18T04:22:20.735112'}
+2025-11-18 04:22:20 - GC - INFO - 📝 Operación #1 procesada: DEVOLUCION - Libro L003 - Usuario U_PUBSUB_TEST_DEV
+2025-11-18 04:22:20 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
+2025-11-18 04:22:25 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB"}
+2025-11-18 04:22:25 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L001', 'usuario_id': 'U_PUBSUB_TEST_REN', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-11-18T04:22:25.955453', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:25 - GC - INFO - 📝 Operación #2 procesada: RENOVACION - Libro L001 - Usuario U_PUBSUB_TEST_REN
+2025-11-18 04:22:25 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L001"}
+2025-11-18 04:22:31 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI"}
+2025-11-18 04:22:31 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L002', 'usuario_id': 'U_MULTI_TEST_DEV', 'sede': 'SEDE_MULTI', 'timestamp': '2025-11-18T04:22:31.035814'}
+2025-11-18 04:22:31 - GC - INFO - 📝 Operación #3 procesada: DEVOLUCION - Libro L002 - Usuario U_MULTI_TEST_DEV
+2025-11-18 04:22:31 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L002"}
+2025-11-18 04:22:31 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI"}
+2025-11-18 04:22:31 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L003', 'usuario_id': 'U_MULTI_TEST_REN', 'sede': 'SEDE_MULTI', 'timestamp': '2025-11-18T04:22:31.138468', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:31 - GC - INFO - 📝 Operación #4 procesada: RENOVACION - Libro L003 - Usuario U_MULTI_TEST_REN
+2025-11-18 04:22:31 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L003"}
+2025-11-18 04:22:36 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1"}
+2025-11-18 04:22:36 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0001', 'usuario_id': 'U0231', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:36.924082', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:36 - GC - INFO - 📝 Operación #5 procesada: RENOVACION - Libro L0001 - Usuario U0231
+2025-11-18 04:22:36 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 04:22:37 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 04:22:37 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:37.965040', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:37 - GC - INFO - 📝 Operación #6 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 04:22:37 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 04:22:38 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0003", "usuario_id": "U0789", "sede": "SEDE_1"}
+2025-11-18 04:22:38 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0003', 'usuario_id': 'U0789', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:38.987990', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:38 - GC - INFO - 📝 Operación #7 procesada: RENOVACION - Libro L0003 - Usuario U0789
+2025-11-18 04:22:38 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0003"}
+2025-11-18 04:22:40 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0001", "usuario_id": "U0197", "sede": "SEDE_1"}
+2025-11-18 04:22:40 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0001', 'usuario_id': 'U0197', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:40.026298'}
+2025-11-18 04:22:40 - GC - INFO - 📝 Operación #8 procesada: DEVOLUCION - Libro L0001 - Usuario U0197
+2025-11-18 04:22:40 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0001"}
+2025-11-18 04:22:41 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1"}
+2025-11-18 04:22:41 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0123', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:41.145458'}
+2025-11-18 04:22:41 - GC - INFO - 📝 Operación #9 procesada: DEVOLUCION - Libro L0002 - Usuario U0123
+2025-11-18 04:22:41 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 04:22:42 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0004", "usuario_id": "U1001", "sede": "SEDE_2"}
+2025-11-18 04:22:42 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0004', 'usuario_id': 'U1001', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:22:42.176182', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:42 - GC - INFO - 📝 Operación #10 procesada: RENOVACION - Libro L0004 - Usuario U1001
+2025-11-18 04:22:42 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0004"}
+2025-11-18 04:22:43 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0005", "usuario_id": "U1002", "sede": "SEDE_2"}
+2025-11-18 04:22:43 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0005', 'usuario_id': 'U1002', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:22:43.213770', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:43 - GC - INFO - 📝 Operación #11 procesada: RENOVACION - Libro L0005 - Usuario U1002
+2025-11-18 04:22:43 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0005"}
+2025-11-18 04:22:44 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0006", "usuario_id": "U1003", "sede": "SEDE_2"}
+2025-11-18 04:22:44 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0006', 'usuario_id': 'U1003', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:22:44.247940', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:44 - GC - INFO - 📝 Operación #12 procesada: RENOVACION - Libro L0006 - Usuario U1003
+2025-11-18 04:22:44 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0006"}
+2025-11-18 04:22:45 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0004", "usuario_id": "U1004", "sede": "SEDE_2"}
+2025-11-18 04:22:45 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0004', 'usuario_id': 'U1004', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:22:45.291650'}
+2025-11-18 04:22:45 - GC - INFO - 📝 Operación #13 procesada: DEVOLUCION - Libro L0004 - Usuario U1004
+2025-11-18 04:22:45 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0004"}
+2025-11-18 04:22:46 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0005", "usuario_id": "U1005", "sede": "SEDE_2"}
+2025-11-18 04:22:46 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0005', 'usuario_id': 'U1005', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:22:46.334647'}
+2025-11-18 04:22:46 - GC - INFO - 📝 Operación #14 procesada: DEVOLUCION - Libro L0005 - Usuario U1005
+2025-11-18 04:22:46 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0005"}
+2025-11-18 04:22:47 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0007", "usuario_id": "U1006", "sede": "SEDE_2"}
+2025-11-18 04:22:47 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0007', 'usuario_id': 'U1006', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:22:47.374007', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:47 - GC - INFO - 📝 Operación #15 procesada: RENOVACION - Libro L0007 - Usuario U1006
+2025-11-18 04:22:47 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0007"}
+2025-11-18 04:22:48 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0008", "usuario_id": "U1007", "sede": "SEDE_2"}
+2025-11-18 04:22:48 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0008', 'usuario_id': 'U1007', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:22:48.414051'}
+2025-11-18 04:22:48 - GC - INFO - 📝 Operación #16 procesada: DEVOLUCION - Libro L0008 - Usuario U1007
+2025-11-18 04:22:48 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0008"}
+2025-11-18 04:22:49 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0009", "usuario_id": "U1008", "sede": "SEDE_1"}
+2025-11-18 04:22:49 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0009', 'usuario_id': 'U1008', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:49.459856', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:49 - GC - INFO - 📝 Operación #17 procesada: RENOVACION - Libro L0009 - Usuario U1008
+2025-11-18 04:22:49 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0009"}
+2025-11-18 04:22:50 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0010", "usuario_id": "U1009", "sede": "SEDE_1"}
+2025-11-18 04:22:50 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0010', 'usuario_id': 'U1009', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:50.513742'}
+2025-11-18 04:22:50 - GC - INFO - 📝 Operación #18 procesada: DEVOLUCION - Libro L0010 - Usuario U1009
+2025-11-18 04:22:50 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0010"}
+2025-11-18 04:22:51 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 04:22:51 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:51.541604', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:51 - GC - INFO - 📝 Operación #19 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 04:22:51 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 04:22:52 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1"}
+2025-11-18 04:22:52 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0123', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:52.570954'}
+2025-11-18 04:22:52 - GC - INFO - 📝 Operación #20 procesada: DEVOLUCION - Libro L0002 - Usuario U0123
+2025-11-18 04:22:52 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 04:22:53 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 04:22:53 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:53.608616', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:53 - GC - INFO - 📝 Operación #21 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 04:22:53 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 04:22:54 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L9999", "usuario_id": "U9999", "sede": "SEDE_1"}
+2025-11-18 04:22:54 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L9999', 'usuario_id': 'U9999', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:54.640751', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:54 - GC - INFO - 📝 Operación #22 procesada: RENOVACION - Libro L9999 - Usuario U9999
+2025-11-18 04:22:54 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L9999"}
+2025-11-18 04:22:55 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L9998", "usuario_id": "U9998", "sede": "SEDE_2"}
+2025-11-18 04:22:55 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L9998', 'usuario_id': 'U9998', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:22:55.678905'}
+2025-11-18 04:22:55 - GC - INFO - 📝 Operación #23 procesada: DEVOLUCION - Libro L9998 - Usuario U9998
+2025-11-18 04:22:55 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L9998"}
+2025-11-18 04:22:56 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U9999", "sede": "SEDE_1"}
+2025-11-18 04:22:56 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0001', 'usuario_id': 'U9999', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:56.740865', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:22:56 - GC - INFO - 📝 Operación #24 procesada: RENOVACION - Libro L0001 - Usuario U9999
+2025-11-18 04:22:56 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 04:22:57 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U9998", "sede": "SEDE_1"}
+2025-11-18 04:22:57 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U9998', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:22:57.778980'}
+2025-11-18 04:22:57 - GC - INFO - 📝 Operación #25 procesada: DEVOLUCION - Libro L0002 - Usuario U9998
+2025-11-18 04:22:57 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 04:23:29 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 04:23:29 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:23:32 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
+2025-11-18 04:23:32 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-11-18T04:23:32.771641'}
+2025-11-18 04:23:32 - GC - INFO - 📝 Operación #26 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
+2025-11-18 04:23:32 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
+2025-11-18 04:23:40 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
+2025-11-18 04:23:40 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L002', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-11-18T04:23:40.208025', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:23:40 - GC - INFO - 📝 Operación #27 procesada: RENOVACION - Libro L002 - Usuario U_TEST_REN
+2025-11-18 04:23:40 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L002"}
+2025-11-18 04:23:45 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 04:23:45 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:32:24 - GC - INFO - 🚀 Iniciando Gestor de Carga...
+2025-11-18 04:32:24 - GC - INFO - ✅ Socket REP inicializado en tcp://0.0.0.0:5001
+2025-11-18 04:32:24 - GC - INFO - ✅ Socket PUB inicializado en tcp://0.0.0.0:5002
+2025-11-18 04:32:25 - GC - INFO - ✅ Gestor de Carga iniciado correctamente
+2025-11-18 04:32:25 - GC - INFO - 📊 Esperando solicitudes en puerto 5001...
+2025-11-18 04:32:25 - GC - INFO - 📡 Listo para publicar eventos en puerto 5002...
+2025-11-18 04:32:25 - GC - INFO - 🔄 Iniciando manejo de solicitudes...
+2025-11-18 04:32:36 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 04:32:36 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:32:39 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
+2025-11-18 04:32:39 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-11-18T04:32:39.926281'}
+2025-11-18 04:32:39 - GC - INFO - 📝 Operación #1 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
+2025-11-18 04:32:39 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
+2025-11-18 04:32:47 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
+2025-11-18 04:32:47 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L002', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-11-18T04:32:47.297052', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:32:47 - GC - INFO - 📝 Operación #2 procesada: RENOVACION - Libro L002 - Usuario U_TEST_REN
+2025-11-18 04:32:47 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L002"}
+2025-11-18 04:32:52 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 04:32:52 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:34:50 - GC - INFO - 🚀 Iniciando Gestor de Carga...
+2025-11-18 04:34:50 - GC - INFO - ✅ Socket REP inicializado en tcp://0.0.0.0:5001
+2025-11-18 04:34:50 - GC - INFO - ✅ Socket PUB inicializado en tcp://0.0.0.0:5002
+2025-11-18 04:34:51 - GC - INFO - ✅ Gestor de Carga iniciado correctamente
+2025-11-18 04:34:51 - GC - INFO - 📊 Esperando solicitudes en puerto 5001...
+2025-11-18 04:34:51 - GC - INFO - 📡 Listo para publicar eventos en puerto 5002...
+2025-11-18 04:34:51 - GC - INFO - 🔄 Iniciando manejo de solicitudes...
+2025-11-18 04:35:03 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 04:35:03 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:35:07 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_TEST_DEV", "sede": "SEDE_TEST"}
+2025-11-18 04:35:07 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_TEST_DEV', 'sede': 'SEDE_TEST', 'timestamp': '2025-11-18T04:35:07.352569'}
+2025-11-18 04:35:07 - GC - INFO - 📝 Operación #1 procesada: DEVOLUCION - Libro L003 - Usuario U_TEST_DEV
+2025-11-18 04:35:07 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
+2025-11-18 04:35:14 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L002", "usuario_id": "U_TEST_REN", "sede": "SEDE_TEST"}
+2025-11-18 04:35:14 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L002', 'usuario_id': 'U_TEST_REN', 'sede': 'SEDE_TEST', 'timestamp': '2025-11-18T04:35:14.716400', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:35:14 - GC - INFO - 📝 Operación #2 procesada: RENOVACION - Libro L002 - Usuario U_TEST_REN
+2025-11-18 04:35:14 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L002"}
+2025-11-18 04:35:20 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 04:35:20 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:36:59 - GC - INFO - 🚀 Iniciando Gestor de Carga...
+2025-11-18 04:36:59 - GC - INFO - ✅ Socket REP inicializado en tcp://0.0.0.0:5001
+2025-11-18 04:36:59 - GC - INFO - ✅ Socket PUB inicializado en tcp://0.0.0.0:5002
+2025-11-18 04:37:00 - GC - INFO - ✅ Gestor de Carga iniciado correctamente
+2025-11-18 04:37:00 - GC - INFO - 📊 Esperando solicitudes en puerto 5001...
+2025-11-18 04:37:00 - GC - INFO - 📡 Listo para publicar eventos en puerto 5002...
+2025-11-18 04:37:00 - GC - INFO - 🔄 Iniciando manejo de solicitudes...
+2025-11-18 04:37:15 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 04:37:15 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:37:16 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 04:37:16 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:37:19 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB"}
+2025-11-18 04:37:19 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_PUBSUB_TEST_DEV', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-11-18T04:37:19.767428'}
+2025-11-18 04:37:19 - GC - INFO - 📝 Operación #1 procesada: DEVOLUCION - Libro L003 - Usuario U_PUBSUB_TEST_DEV
+2025-11-18 04:37:19 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
+2025-11-18 04:37:24 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB"}
+2025-11-18 04:37:24 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L001', 'usuario_id': 'U_PUBSUB_TEST_REN', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-11-18T04:37:24.830929', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:24 - GC - INFO - 📝 Operación #2 procesada: RENOVACION - Libro L001 - Usuario U_PUBSUB_TEST_REN
+2025-11-18 04:37:24 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L001"}
+2025-11-18 04:37:29 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI"}
+2025-11-18 04:37:29 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L002', 'usuario_id': 'U_MULTI_TEST_DEV', 'sede': 'SEDE_MULTI', 'timestamp': '2025-11-18T04:37:29.894503'}
+2025-11-18 04:37:29 - GC - INFO - 📝 Operación #3 procesada: DEVOLUCION - Libro L002 - Usuario U_MULTI_TEST_DEV
+2025-11-18 04:37:29 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L002"}
+2025-11-18 04:37:29 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI"}
+2025-11-18 04:37:29 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L003', 'usuario_id': 'U_MULTI_TEST_REN', 'sede': 'SEDE_MULTI', 'timestamp': '2025-11-18T04:37:29.998585', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:29 - GC - INFO - 📝 Operación #4 procesada: RENOVACION - Libro L003 - Usuario U_MULTI_TEST_REN
+2025-11-18 04:37:29 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L003"}
+2025-11-18 04:37:35 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1"}
+2025-11-18 04:37:35 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0001', 'usuario_id': 'U0231', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:35.648856', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:35 - GC - INFO - 📝 Operación #5 procesada: RENOVACION - Libro L0001 - Usuario U0231
+2025-11-18 04:37:35 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 04:37:36 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 04:37:36 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:36.686004', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:36 - GC - INFO - 📝 Operación #6 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 04:37:36 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 04:37:37 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0003", "usuario_id": "U0789", "sede": "SEDE_1"}
+2025-11-18 04:37:37 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0003', 'usuario_id': 'U0789', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:37.702700', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:37 - GC - INFO - 📝 Operación #7 procesada: RENOVACION - Libro L0003 - Usuario U0789
+2025-11-18 04:37:37 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0003"}
+2025-11-18 04:37:38 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0001", "usuario_id": "U0197", "sede": "SEDE_1"}
+2025-11-18 04:37:38 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0001', 'usuario_id': 'U0197', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:38.732610'}
+2025-11-18 04:37:38 - GC - INFO - 📝 Operación #8 procesada: DEVOLUCION - Libro L0001 - Usuario U0197
+2025-11-18 04:37:38 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0001"}
+2025-11-18 04:37:39 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1"}
+2025-11-18 04:37:39 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0123', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:39.761079'}
+2025-11-18 04:37:39 - GC - INFO - 📝 Operación #9 procesada: DEVOLUCION - Libro L0002 - Usuario U0123
+2025-11-18 04:37:39 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 04:37:40 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0004", "usuario_id": "U1001", "sede": "SEDE_2"}
+2025-11-18 04:37:40 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0004', 'usuario_id': 'U1001', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:37:40.794574', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:40 - GC - INFO - 📝 Operación #10 procesada: RENOVACION - Libro L0004 - Usuario U1001
+2025-11-18 04:37:40 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0004"}
+2025-11-18 04:37:41 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0005", "usuario_id": "U1002", "sede": "SEDE_2"}
+2025-11-18 04:37:41 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0005', 'usuario_id': 'U1002', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:37:41.837705', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:41 - GC - INFO - 📝 Operación #11 procesada: RENOVACION - Libro L0005 - Usuario U1002
+2025-11-18 04:37:41 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0005"}
+2025-11-18 04:37:42 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0006", "usuario_id": "U1003", "sede": "SEDE_2"}
+2025-11-18 04:37:42 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0006', 'usuario_id': 'U1003', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:37:42.875762', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:42 - GC - INFO - 📝 Operación #12 procesada: RENOVACION - Libro L0006 - Usuario U1003
+2025-11-18 04:37:42 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0006"}
+2025-11-18 04:37:43 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0004", "usuario_id": "U1004", "sede": "SEDE_2"}
+2025-11-18 04:37:43 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0004', 'usuario_id': 'U1004', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:37:43.914363'}
+2025-11-18 04:37:43 - GC - INFO - 📝 Operación #13 procesada: DEVOLUCION - Libro L0004 - Usuario U1004
+2025-11-18 04:37:43 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0004"}
+2025-11-18 04:37:44 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0005", "usuario_id": "U1005", "sede": "SEDE_2"}
+2025-11-18 04:37:44 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0005', 'usuario_id': 'U1005', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:37:44.955082'}
+2025-11-18 04:37:44 - GC - INFO - 📝 Operación #14 procesada: DEVOLUCION - Libro L0005 - Usuario U1005
+2025-11-18 04:37:44 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0005"}
+2025-11-18 04:37:45 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0007", "usuario_id": "U1006", "sede": "SEDE_2"}
+2025-11-18 04:37:45 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0007', 'usuario_id': 'U1006', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:37:45.992697', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:45 - GC - INFO - 📝 Operación #15 procesada: RENOVACION - Libro L0007 - Usuario U1006
+2025-11-18 04:37:45 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0007"}
+2025-11-18 04:37:47 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0008", "usuario_id": "U1007", "sede": "SEDE_2"}
+2025-11-18 04:37:47 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0008', 'usuario_id': 'U1007', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:37:47.020346'}
+2025-11-18 04:37:47 - GC - INFO - 📝 Operación #16 procesada: DEVOLUCION - Libro L0008 - Usuario U1007
+2025-11-18 04:37:47 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0008"}
+2025-11-18 04:37:48 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0009", "usuario_id": "U1008", "sede": "SEDE_1"}
+2025-11-18 04:37:48 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0009', 'usuario_id': 'U1008', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:48.054997', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:48 - GC - INFO - 📝 Operación #17 procesada: RENOVACION - Libro L0009 - Usuario U1008
+2025-11-18 04:37:48 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0009"}
+2025-11-18 04:37:49 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0010", "usuario_id": "U1009", "sede": "SEDE_1"}
+2025-11-18 04:37:49 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0010', 'usuario_id': 'U1009', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:49.089756'}
+2025-11-18 04:37:49 - GC - INFO - 📝 Operación #18 procesada: DEVOLUCION - Libro L0010 - Usuario U1009
+2025-11-18 04:37:49 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0010"}
+2025-11-18 04:37:50 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 04:37:50 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:50.108121', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:50 - GC - INFO - 📝 Operación #19 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 04:37:50 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 04:37:51 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1"}
+2025-11-18 04:37:51 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U0123', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:51.150697'}
+2025-11-18 04:37:51 - GC - INFO - 📝 Operación #20 procesada: DEVOLUCION - Libro L0002 - Usuario U0123
+2025-11-18 04:37:51 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 04:37:52 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 04:37:52 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:52.189046', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:52 - GC - INFO - 📝 Operación #21 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 04:37:52 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 04:37:53 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L9999", "usuario_id": "U9999", "sede": "SEDE_1"}
+2025-11-18 04:37:53 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L9999', 'usuario_id': 'U9999', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:53.224439', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:53 - GC - INFO - 📝 Operación #22 procesada: RENOVACION - Libro L9999 - Usuario U9999
+2025-11-18 04:37:53 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L9999"}
+2025-11-18 04:37:54 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L9998", "usuario_id": "U9998", "sede": "SEDE_2"}
+2025-11-18 04:37:54 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L9998', 'usuario_id': 'U9998', 'sede': 'SEDE_2', 'timestamp': '2025-11-18T04:37:54.269797'}
+2025-11-18 04:37:54 - GC - INFO - 📝 Operación #23 procesada: DEVOLUCION - Libro L9998 - Usuario U9998
+2025-11-18 04:37:54 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L9998"}
+2025-11-18 04:37:55 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U9999", "sede": "SEDE_1"}
+2025-11-18 04:37:55 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0001', 'usuario_id': 'U9999', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:55.303833', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:37:55 - GC - INFO - 📝 Operación #24 procesada: RENOVACION - Libro L0001 - Usuario U9999
+2025-11-18 04:37:55 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 04:37:56 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U9998", "sede": "SEDE_1"}
+2025-11-18 04:37:56 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L0002', 'usuario_id': 'U9998', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:37:56.344909'}
+2025-11-18 04:37:56 - GC - INFO - 📝 Operación #25 procesada: DEVOLUCION - Libro L0002 - Usuario U9998
+2025-11-18 04:37:56 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 04:38:57 - GC - INFO - 🚀 Iniciando Gestor de Carga...
+2025-11-18 04:38:57 - GC - INFO - ✅ Socket REP inicializado en tcp://0.0.0.0:5001
+2025-11-18 04:38:57 - GC - INFO - ✅ Socket PUB inicializado en tcp://0.0.0.0:5002
+2025-11-18 04:38:58 - GC - INFO - ✅ Gestor de Carga iniciado correctamente
+2025-11-18 04:38:58 - GC - INFO - 📊 Esperando solicitudes en puerto 5001...
+2025-11-18 04:38:58 - GC - INFO - 📡 Listo para publicar eventos en puerto 5002...
+2025-11-18 04:38:58 - GC - INFO - 🔄 Iniciando manejo de solicitudes...
+2025-11-18 04:39:22 - GC - INFO - 📨 Solicitud recibida: {"op": "TEST_CONNECTION", "libro_id": "TEST", "usuario_id": "TEST"}
+2025-11-18 04:39:22 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: TEST_CONNECTION. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:39:23 - GC - INFO - 📨 Solicitud recibida: {"op": "OPERACION_INVALIDA", "libro_id": "L999", "usuario_id": "U999"}
+2025-11-18 04:39:23 - GC - INFO - 📤 Respuesta enviada: {"status": "ERROR", "message": "Operación inválida: OPERACION_INVALIDA. Solo se permiten RENOVACION y DEVOLUCION"}
+2025-11-18 04:39:26 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L003", "usuario_id": "U_PUBSUB_TEST_DEV", "sede": "SEDE_PUBSUB"}
+2025-11-18 04:39:26 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L003', 'usuario_id': 'U_PUBSUB_TEST_DEV', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-11-18T04:39:26.790276'}
+2025-11-18 04:39:26 - GC - INFO - 📝 Operación #1 procesada: DEVOLUCION - Libro L003 - Usuario U_PUBSUB_TEST_DEV
+2025-11-18 04:39:26 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L003"}
+2025-11-18 04:39:31 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L001", "usuario_id": "U_PUBSUB_TEST_REN", "sede": "SEDE_PUBSUB"}
+2025-11-18 04:39:31 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L001', 'usuario_id': 'U_PUBSUB_TEST_REN', 'sede': 'SEDE_PUBSUB', 'timestamp': '2025-11-18T04:39:31.863546', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:39:31 - GC - INFO - 📝 Operación #2 procesada: RENOVACION - Libro L001 - Usuario U_PUBSUB_TEST_REN
+2025-11-18 04:39:31 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L001"}
+2025-11-18 04:39:36 - GC - INFO - 📨 Solicitud recibida: {"op": "DEVOLUCION", "libro_id": "L002", "usuario_id": "U_MULTI_TEST_DEV", "sede": "SEDE_MULTI"}
+2025-11-18 04:39:36 - GC - INFO - 📡 Evento enviado a actores - Topic: devolucion - Evento: {'operacion': 'DEVOLUCION', 'libro_id': 'L002', 'usuario_id': 'U_MULTI_TEST_DEV', 'sede': 'SEDE_MULTI', 'timestamp': '2025-11-18T04:39:36.930450'}
+2025-11-18 04:39:36 - GC - INFO - 📝 Operación #3 procesada: DEVOLUCION - Libro L002 - Usuario U_MULTI_TEST_DEV
+2025-11-18 04:39:36 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L002"}
+2025-11-18 04:39:37 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L003", "usuario_id": "U_MULTI_TEST_REN", "sede": "SEDE_MULTI"}
+2025-11-18 04:39:37 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L003', 'usuario_id': 'U_MULTI_TEST_REN', 'sede': 'SEDE_MULTI', 'timestamp': '2025-11-18T04:39:37.033113', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:39:37 - GC - INFO - 📝 Operación #4 procesada: RENOVACION - Libro L003 - Usuario U_MULTI_TEST_REN
+2025-11-18 04:39:37 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L003"}
+2025-11-18 04:39:42 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1"}
+2025-11-18 04:39:42 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0001', 'usuario_id': 'U0231', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:39:42.716081', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:39:42 - GC - INFO - 📝 Operación #5 procesada: RENOVACION - Libro L0001 - Usuario U0231
+2025-11-18 04:39:42 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 04:39:43 - GC - INFO - 📨 Solicitud recibida: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 04:39:43 - GC - INFO - 📡 Evento enviado a actores - Topic: renovacion - Evento: {'operacion': 'RENOVACION', 'libro_id': 'L0002', 'usuario_id': 'U0456', 'sede': 'SEDE_1', 'timestamp': '2025-11-18T04:39:43.745877', 'nueva_fecha_devolucion': '2025-11-25'}
+2025-11-18 04:39:43 - GC - INFO - 📝 Operación #6 procesada: RENOVACION - Libro L0002 - Usuario U0456
+2025-11-18 04:39:43 - GC - INFO - 📤 Respuesta enviada: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}

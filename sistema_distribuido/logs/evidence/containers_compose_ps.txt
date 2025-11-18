@@ -1,5 +1,7 @@
-NAME        IMAGE                                  COMMAND                  SERVICE            CREATED          STATUS                    PORTS
-actor_dev   sistema_distribuido-actor_devolucion   "python actor_devolu…"   actor_devolucion   26 minutes ago   Up 26 minutes (healthy)   
-actor_ren   sistema_distribuido-actor_renovacion   "python actor_renova…"   actor_renovacion   26 minutes ago   Up 26 minutes (healthy)   
-gc          sistema_distribuido-gc                 "python gestor_carga…"   gc                 26 minutes ago   Up 26 minutes (healthy)   0.0.0.0:5001-5002->5001-5002/tcp
-ps          sistema_distribuido-ps                 "python proceso_soli…"   ps                 5 seconds ago    Up 4 seconds              
+NAME             IMAGE                                  COMMAND                  SERVICE            CREATED             STATUS                    PORTS
+actor_dev        sistema_distribuido-actor_devolucion   "python actor_devolu…"   actor_devolucion   About an hour ago   Up 47 seconds (healthy)   
+actor_prestamo   sistema_distribuido-actor_prestamo     "python actor_presta…"   actor_prestamo     About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5004->5004/tcp, [::]:5004->5004/tcp
+actor_ren        sistema_distribuido-actor_renovacion   "python actor_renova…"   actor_renovacion   About an hour ago   Up 47 seconds (healthy)   
+ga               sistema_distribuido-ga                 "python gestor_almac…"   ga                 About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5003->5003/tcp, [::]:5003->5003/tcp
+gc               sistema_distribuido-gc                 "python gestor_carga…"   gc                 About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5001-5002->5001-5002/tcp, [::]:5001-5002->5001-5002/tcp
+ps               sistema_distribuido-ps                 "python proceso_soli…"   ps                 About an hour ago   Up 4 seconds              

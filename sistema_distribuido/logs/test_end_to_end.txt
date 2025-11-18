@@ -1,8 +1,8 @@
 === REPORTE DE TEST: test_end_to_end ===
-Timestamp: 2025-10-04T19:13:26.145970
+Timestamp: 2025-11-18T04:58:27.626651
 
 test_name: test_end_to_end
-timestamp: 2025-10-04T19:13:26.108614
+timestamp: 2025-11-18T04:58:27.567567
 passed: True
 operaciones_procesadas: 1
 tiempo_ack_promedio: 0.0

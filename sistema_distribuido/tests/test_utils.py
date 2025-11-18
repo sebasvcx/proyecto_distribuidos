@@ -64,22 +64,6 @@ class TestUtils:
             context.term()
     
     @staticmethod
-    def _formatear_libro_id(libro_id: Any) -> Any:
-        """Normaliza IDs de libro para pruebas (L003 -> L0003 o similar)."""
-        if not isinstance(libro_id, str):
-            return libro_id
-
-        valor = libro_id.strip().upper()
-        if not valor.startswith('L'):
-            return valor
-
-        try:
-            numero = int(''.join(ch for ch in valor[1:] if ch.isdigit()))
-            return f"L{numero:03d}"
-        except ValueError:
-            return valor
-
-    @staticmethod
     def read_json(path: str) -> Dict[str, Any]:
         """
         Lee archivo JSON de forma segura
@@ -92,38 +76,7 @@ class TestUtils:
         """
         try:
             with open(path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            # Algunos escenarios (como data/libros.json) contienen metadata y la
-            # lista de libros dentro de la clave "libros". Los tests históricos
-            # asumían que el archivo era solo una lista, por lo que aquí
-            # mantenemos compatibilidad retornando la lista cuando exista.
-            if isinstance(data, dict) and "libros" in data:
-                libros = json.loads(json.dumps(data["libros"]))  # Copia profunda segura
-                for libro in libros:
-                    if isinstance(libro, dict):
-                        libro_id = libro.get('libro_id')
-                        libro['libro_id'] = TestUtils._formatear_libro_id(libro_id)
-
-                        ejemplares = libro.get('ejemplares', [])
-                        fecha_referencia = ''
-                        for ejemplar in ejemplares:
-                            if isinstance(ejemplar, dict) and 'libro_id' in ejemplar:
-                                ejemplar['libro_id'] = TestUtils._formatear_libro_id(ejemplar['libro_id'])
-                            if (
-                                isinstance(ejemplar, dict)
-                                and ejemplar.get('estado') == 'prestado'
-                                and ejemplar.get('fecha_devolucion')
-                                and not fecha_referencia
-                            ):
-                                fecha_referencia = ejemplar['fecha_devolucion']
-
-                        # Exponer fecha de referencia para los tests de renovación
-                        libro['fecha_devolucion'] = fecha_referencia
-
-                return libros
-
-            return data
+                return json.load(f)
         except FileNotFoundError:
             logger.warning(f"Archivo no encontrado: {path}")
             return {}

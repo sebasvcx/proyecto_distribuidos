@@ -1,8 +1,8 @@
 === REPORTE DE TEST: test_pubsub_visibility ===
-Timestamp: 2025-10-04T19:13:42.139794
+Timestamp: 2025-11-18T04:39:40.064181
 
 test_name: test_pubsub_visibility
-timestamp: 2025-10-04T19:13:36.993263
+timestamp: 2025-11-18T04:39:34.894471
 passed: True
 eventos_devolucion_recibidos: 1
 eventos_renovacion_recibidos: 1
