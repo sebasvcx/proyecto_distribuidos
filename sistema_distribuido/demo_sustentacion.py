@@ -349,52 +349,102 @@ def ejecutar_ps_archivo(archivo: str, mostrar_logs: bool = True) -> bool:
     # Mostrar contenido del archivo
     print_info("Contenido del archivo a procesar:")
     with open(archivo, 'r', encoding='utf-8') as f:
-        for line in f:
+        contenido_archivo = f.read()
+        for line in contenido_archivo.split('\n'):
             line = line.strip()
             if line and not line.startswith('#'):
                 print(f"  {Colors.CYAN}→{Colors.NC} {line}")
     print()
     
-    # Determinar ruta en contenedor
-    if archivo.startswith('data/'):
-        archivo_en_contenedor = f"/app/{archivo}"
-    else:
-        archivo_en_contenedor = f"/app/data/{archivo}"
+    # SOLUCIÓN DEFINITIVA: Reemplazar temporalmente data/solicitudes.txt
+    # porque el PS lee desde ahí por defecto cuando no recibe argumentos correctamente
+    archivo_solicitudes_default = "data/solicitudes.txt"
+    backup_existe = False
+    contenido_backup = None
     
-    # Ejecutar PS
-    # Usar la forma correcta: sin --entrypoint, ejecutar python directamente
+    # Hacer backup del archivo original si existe
+    if os.path.exists(archivo_solicitudes_default):
+        backup_existe = True
+        with open(archivo_solicitudes_default, 'r', encoding='utf-8') as f:
+            contenido_backup = f.read()
+        print_info(f"Haciendo backup de {archivo_solicitudes_default}")
+    
+    # Copiar el contenido del archivo deseado a solicitudes.txt
+    try:
+        with open(archivo_solicitudes_default, 'w', encoding='utf-8') as f:
+            f.write(contenido_archivo)
+        print_success(f"Archivo {archivo_solicitudes_default} actualizado con contenido de {archivo}")
+    except Exception as e:
+        print_error(f"Error copiando archivo: {e}")
+        return False
+    
+    # Ejecutar PS usando el archivo por defecto (que ahora tiene nuestro contenido)
     cmd = [
         "docker", "compose", "run", "--rm", "--no-deps",
         "-e", "GC_HOST=gc",
         "-e", "GC_PORT=5001",
-        "ps", "python", "proceso_solicitante.py", archivo_en_contenedor
+        "ps"
     ]
     
-    print_info(f"Ejecutando PS con archivo en contenedor: {archivo_en_contenedor}")
+    print_info(f"Ejecutando PS (usará {archivo_solicitudes_default} con el contenido de {archivo})")
     print_info("Comando: " + " ".join(cmd))
+    
     result = subprocess.run(
         cmd,
         capture_output=True,
         text=True
     )
     
-    # Esperar un poco para que el GA termine de procesar
-    time.sleep(3)
+    # Restaurar el archivo original si existía
+    try:
+        if backup_existe and contenido_backup is not None:
+            with open(archivo_solicitudes_default, 'w', encoding='utf-8') as f:
+                f.write(contenido_backup)
+            print_info(f"Archivo {archivo_solicitudes_default} restaurado")
+        elif not backup_existe:
+            # Si no existía, eliminarlo para no dejar basura
+            if os.path.exists(archivo_solicitudes_default):
+                os.remove(archivo_solicitudes_default)
+                print_info(f"Archivo temporal {archivo_solicitudes_default} eliminado")
+    except Exception as e:
+        print_warning(f"No se pudo restaurar {archivo_solicitudes_default}: {e}")
+    
+    # Siempre mostrar logs para debug
+    if result.stdout:
+        print(f"\n{Colors.CYAN}--- Salida del PS (stdout) ---{Colors.NC}")
+        for line in result.stdout.split('\n'):
+            if line.strip():
+                # Colorear según tipo de mensaje
+                if "ERROR" in line.upper() or "Error" in line:
+                    print(f"  {Colors.RED}{line}{Colors.NC}")
+                elif "exitoso" in line.lower() or "OK" in line or "SUCCESS" in line.upper():
+                    print(f"  {Colors.GREEN}{line}{Colors.NC}")
+                else:
+                    print(f"  {line}")
+        print()
+    
+    if result.stderr:
+        print(f"\n{Colors.YELLOW}--- Salida del PS (stderr/debug) ---{Colors.NC}")
+        for line in result.stderr.split('\n'):
+            if line.strip():
+                # Los mensajes DEBUG van a stderr
+                if "DEBUG" in line:
+                    print(f"  {Colors.CYAN}{line}{Colors.NC}")
+                elif "ERROR" in line.upper():
+                    print(f"  {Colors.RED}{line}{Colors.NC}")
+                else:
+                    print(f"  {line}")
+        print()
+    
+    # Esperar un poco más para que el GA termine de procesar y escribir
+    print_info("Esperando que el GA termine de procesar y escribir cambios...")
+    time.sleep(5)  # Aumentar tiempo de espera
     
     if result.returncode == 0:
         print_success("PS ejecutado correctamente")
-        if mostrar_logs and result.stdout:
-            print(f"\n{Colors.CYAN}--- Salida del PS ---{Colors.NC}")
-            for line in result.stdout.split('\n')[-20:]:  # Últimas 20 líneas
-                if line.strip():
-                    print(f"  {line}")
-            print()
         return True
     else:
-        print_error("PS terminó con errores")
-        if result.stderr:
-            print(f"\n{Colors.RED}--- Errores ---{Colors.NC}")
-            print(result.stderr)
+        print_error(f"PS terminó con errores (código de salida: {result.returncode})")
         return False
 
 def ejecutar_ps_paralelo(archivos: List[str], mostrar_logs: bool = True) -> List[subprocess.Popen]:
@@ -415,26 +465,44 @@ def ejecutar_ps_paralelo(archivos: List[str], mostrar_logs: bool = True) -> List
         print_error("No hay archivos válidos para ejecutar")
         return []
     
+    # Para ejecución en paralelo, cada PS usará su propio archivo temporal
+    # ya que todos leen desde data/solicitudes.txt por defecto
+    # Solución: ejecutar secuencialmente con reemplazo temporal de solicitudes.txt
+    print_warning("Nota: Los PS se ejecutarán secuencialmente para evitar conflictos con data/solicitudes.txt")
+    print_info("Cada PS usará temporalmente su archivo como data/solicitudes.txt")
+    
     procesos = []
     for i, archivo in enumerate(archivos_validos):
+        print_info(f"Iniciando PS {i+1}/{len(archivos_validos)}: {archivo}")
         
-        print_info(f"Iniciando PS {i+1}: {archivo}")
+        # Leer contenido del archivo
+        try:
+            with open(archivo, 'r', encoding='utf-8') as f:
+                contenido_archivo = f.read()
+        except Exception as e:
+            print_error(f"Error leyendo {archivo}: {e}")
+            continue
         
-        # Determinar ruta en contenedor
-        if archivo.startswith('data/'):
-            archivo_en_contenedor = f"/app/{archivo}"
-        else:
-            archivo_en_contenedor = f"/app/data/{archivo}"
+        # Reemplazar temporalmente solicitudes.txt
+        archivo_solicitudes_default = "data/solicitudes.txt"
+        backup_existe = os.path.exists(archivo_solicitudes_default)
+        contenido_backup = None
         
-        # Usar el mismo formato que funciona en otros scripts
+        if backup_existe:
+            with open(archivo_solicitudes_default, 'r', encoding='utf-8') as f:
+                contenido_backup = f.read()
+        
+        # Escribir contenido temporal
+        with open(archivo_solicitudes_default, 'w', encoding='utf-8') as f:
+            f.write(contenido_archivo)
+        
+        # Ejecutar PS
         cmd = [
-            "docker", "compose", "run", "--rm",
+            "docker", "compose", "run", "--rm", "--no-deps",
             "-e", "GC_HOST=gc",
             "-e", "GC_PORT=5001",
-            "ps", "python", "proceso_solicitante.py", archivo_en_contenedor
+            "ps"
         ]
-        
-        print_info(f"  Archivo en contenedor: {archivo_en_contenedor}")
         
         proceso = subprocess.Popen(
             cmd,
@@ -442,8 +510,8 @@ def ejecutar_ps_paralelo(archivos: List[str], mostrar_logs: bool = True) -> List
             stderr=subprocess.PIPE,
             text=True
         )
-        procesos.append((proceso, archivo))
-        time.sleep(0.5)  # Pequeña pausa entre inicios
+        procesos.append((proceso, archivo, archivo_solicitudes_default, contenido_backup, backup_existe))
+        time.sleep(1)  # Pausa entre ejecuciones para evitar conflictos
     
     print_success(f"{len(procesos)} procesos PS iniciados")
     return procesos
@@ -457,12 +525,40 @@ def esperar_procesos(procesos: List[tuple], timeout: int = 180):
     
     while procesos_activos and (time.time() - inicio) < timeout:
         procesos_terminados = []
-        for proceso, archivo in procesos_activos:
+        for item in procesos_activos:
+            if len(item) == 5:  # Formato nuevo con backup info
+                proceso, archivo, archivo_default, contenido_backup, backup_existe = item
+            else:  # Formato antiguo
+                proceso, archivo = item
+                archivo_default = None
+                contenido_backup = None
+                backup_existe = False
+            
             if proceso.poll() is not None:  # Proceso terminó
-                procesos_terminados.append((proceso, archivo))
+                procesos_terminados.append(item)
         
-        for proceso, archivo in procesos_terminados:
-            procesos_activos.remove((proceso, archivo))
+        for item in procesos_terminados:
+            procesos_activos.remove(item)
+            
+            if len(item) == 5:
+                proceso, archivo, archivo_default, contenido_backup, backup_existe = item
+            else:
+                proceso, archivo = item
+                archivo_default = None
+                contenido_backup = None
+                backup_existe = False
+            
+            # Restaurar archivo si es necesario
+            if archivo_default and os.path.exists(archivo_default):
+                try:
+                    if backup_existe and contenido_backup is not None:
+                        with open(archivo_default, 'w', encoding='utf-8') as f:
+                            f.write(contenido_backup)
+                    elif not backup_existe:
+                        os.remove(archivo_default)
+                except Exception as e:
+                    print_warning(f"No se pudo restaurar {archivo_default}: {e}")
+            
             if proceso.returncode == 0:
                 print_success(f"PS completado: {archivo}")
             else:
@@ -473,7 +569,8 @@ def esperar_procesos(procesos: List[tuple], timeout: int = 180):
     
     if procesos_activos:
         print_warning(f"{len(procesos_activos)} procesos aún activos después del timeout")
-        for proceso, archivo in procesos_activos:
+        for item in procesos_activos:
+            proceso = item[0]
             proceso.terminate()
     
     print_success("Todos los procesos PS han terminado")
@@ -535,85 +632,51 @@ def caso_1():
         f.write("RENOVACION L0001 U0001 SEDE_2\n")
     
     print_success(f"Archivo de solicitudes creado: {archivo_caso1}")
+    print_info("Este archivo contiene las 3 operaciones que ejecutará un solo PS")
     print()
     
-    # Ejecutar las operaciones una por una para mostrar cambios
-    # Pero conceptualmente es un solo PS procesando todo
+    # Mostrar contenido del archivo
+    print_info("Operaciones que ejecutará el PS:")
+    with open(archivo_caso1, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith('#'):
+                print(f"  {Colors.CYAN}→{Colors.NC} {line}")
+    print()
     
-    # Operación 1: PRESTAMO
+    pause("Presiona Enter para ejecutar el PS con las 3 operaciones...")
+    
+    # Ejecutar UN SOLO PS con las 3 operaciones
     print(f"\n{Colors.YELLOW}{'='*60}{Colors.NC}")
-    print(f"{Colors.YELLOW}OPERACIÓN 1: PRESTAMO desde SEDE_2{Colors.NC}")
+    print(f"{Colors.YELLOW}EJECUTANDO UN SOLO PS CON LAS 3 OPERACIONES DESDE SEDE_2{Colors.NC}")
     print(f"{Colors.YELLOW}{'='*60}{Colors.NC}")
+    print()
     
-    archivo_prestamo = "data/caso1_prestamo.txt"
-    with open(archivo_prestamo, 'w', encoding='utf-8') as f:
-        f.write("PRESTAMO L0001 U0001 SEDE_2\n")
-    
-    if ejecutar_ps_archivo(archivo_prestamo, mostrar_logs=True):
-        time.sleep(2)  # Esperar que el GA termine de escribir
-        mostrar_estado_bd("Estado después de PRESTAMO")
-        print_success("PRESTAMO completado desde SEDE_2")
+    if ejecutar_ps_archivo(archivo_caso1, mostrar_logs=True):
+        # Esperar que el GA termine de procesar todas las operaciones
+        print_info("Esperando que el GA termine de procesar todas las operaciones...")
+        time.sleep(5)
+        
+        # Mostrar estado final después de todas las operaciones
+        print()
+        print(f"\n{Colors.YELLOW}{'='*60}{Colors.NC}")
+        print(f"{Colors.YELLOW}ESTADO FINAL DESPUÉS DE LAS 3 OPERACIONES{Colors.NC}")
+        print(f"{Colors.YELLOW}{'='*60}{Colors.NC}")
+        mostrar_estado_bd("Estado Final")
+        
+        print_success("Caso 1 completado exitosamente")
+        print()
+        print_info("✓ Un solo PS procesó las 3 operaciones desde SEDE_2:")
+        print_info("  1. PRESTAMO L0001 U0001 SEDE_2")
+        print_info("  2. DEVOLUCION L0001 U0001 SEDE_2")
+        print_info("  3. PRESTAMO L0001 U0001 SEDE_2 (para renovar)")
+        print_info("  4. RENOVACION L0001 U0001 SEDE_2")
+        print()
     else:
-        print_error("Error ejecutando PRESTAMO")
+        print_error("Error ejecutando el PS")
         return False
     
     pause()
-    
-    # Operación 2: DEVOLUCION
-    print(f"\n{Colors.YELLOW}{'='*60}{Colors.NC}")
-    print(f"{Colors.YELLOW}OPERACIÓN 2: DEVOLUCION desde SEDE_2{Colors.NC}")
-    print(f"{Colors.YELLOW}{'='*60}{Colors.NC}")
-    
-    archivo_devolucion = "data/caso1_devolucion.txt"
-    with open(archivo_devolucion, 'w', encoding='utf-8') as f:
-        f.write("DEVOLUCION L0001 U0001 SEDE_2\n")
-    
-    if ejecutar_ps_archivo(archivo_devolucion, mostrar_logs=True):
-        time.sleep(2)
-        mostrar_estado_bd("Estado después de DEVOLUCION")
-        print_success("DEVOLUCION completada desde SEDE_2")
-    else:
-        print_error("Error ejecutando DEVOLUCION")
-        return False
-    
-    pause()
-    
-    # Operación 3: RENOVACION (necesitamos prestar primero)
-    print(f"\n{Colors.YELLOW}{'='*60}{Colors.NC}")
-    print(f"{Colors.YELLOW}OPERACIÓN 3: RENOVACION desde SEDE_2{Colors.NC}")
-    print(f"{Colors.YELLOW}{'='*60}{Colors.NC}")
-    
-    print_info("Primero necesitamos prestar el libro nuevamente para poder renovarlo")
-    archivo_prestamo2 = "data/caso1_prestamo2.txt"
-    with open(archivo_prestamo2, 'w', encoding='utf-8') as f:
-        f.write("PRESTAMO L0001 U0001 SEDE_2\n")
-    
-    if ejecutar_ps_archivo(archivo_prestamo2, mostrar_logs=False):
-        time.sleep(2)
-    else:
-        print_error("Error ejecutando PRESTAMO para renovación")
-        return False
-    
-    print_info("Ahora ejecutando RENOVACION...")
-    archivo_renovacion = "data/caso1_renovacion.txt"
-    with open(archivo_renovacion, 'w', encoding='utf-8') as f:
-        f.write("RENOVACION L0001 U0001 SEDE_2\n")
-    
-    if ejecutar_ps_archivo(archivo_renovacion, mostrar_logs=True):
-        time.sleep(2)
-        mostrar_estado_bd("Estado después de RENOVACION")
-        print_success("RENOVACION completada desde SEDE_2")
-    else:
-        print_error("Error ejecutando RENOVACION")
-        return False
-    
-    pause()
-    
-    print_success("Caso 1 completado exitosamente")
-    print()
-    print_info("Nota: Aunque ejecutamos 3 PS separados para mostrar cambios paso a paso,")
-    print_info("conceptualmente esto representa un solo PS procesando las 3 operaciones desde SEDE_2")
-    print()
     
     return True
 

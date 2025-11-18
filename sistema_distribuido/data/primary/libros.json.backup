@@ -1,29 +1,29 @@
 {
   "metadata": {
     "version": "1.0",
-    "fecha_creacion": "2025-11-18T13:59:30.866411",
+    "fecha_creacion": "2025-11-18T14:22:28.296553",
     "total_libros": 15,
-    "total_ejemplares": 53,
+    "total_ejemplares": 51,
     "ejemplares_prestados_sede_1": 0,
-    "ejemplares_prestados_sede_2": 0,
-    "ejemplares_disponibles": 53
+    "ejemplares_prestados_sede_2": 1,
+    "ejemplares_disponibles": 50
   },
   "libros": [
     {
       "libro_id": "L0001",
       "titulo": "Libro 1",
       "total_ejemplares": 5,
-      "ejemplares_disponibles": 5,
-      "ejemplares_prestados": 0,
+      "ejemplares_disponibles": 4,
+      "ejemplares_prestados": 1,
       "ejemplares": [
         {
           "ejemplar_id": "L0001-E001",
           "libro_id": "L0001",
           "titulo": "Libro 1",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
+          "estado": "prestado",
+          "fecha_devolucion": "2025-12-02",
+          "usuario_prestamo": "U0001",
+          "sede": "SEDE_2"
         },
         {
           "ejemplar_id": "L0001-E002",
@@ -66,8 +66,8 @@
     {
       "libro_id": "L0002",
       "titulo": "Libro 2",
-      "total_ejemplares": 5,
-      "ejemplares_disponibles": 5,
+      "total_ejemplares": 2,
+      "ejemplares_disponibles": 2,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -87,41 +87,14 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
-        },
-        {
-          "ejemplar_id": "L0002-E003",
-          "libro_id": "L0002",
-          "titulo": "Libro 2",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
-        },
-        {
-          "ejemplar_id": "L0002-E004",
-          "libro_id": "L0002",
-          "titulo": "Libro 2",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
-        },
-        {
-          "ejemplar_id": "L0002-E005",
-          "libro_id": "L0002",
-          "titulo": "Libro 2",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0003",
       "titulo": "Libro 3",
-      "total_ejemplares": 5,
-      "ejemplares_disponibles": 5,
+      "total_ejemplares": 2,
+      "ejemplares_disponibles": 2,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -141,41 +114,14 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
-        },
-        {
-          "ejemplar_id": "L0003-E003",
-          "libro_id": "L0003",
-          "titulo": "Libro 3",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
-        },
-        {
-          "ejemplar_id": "L0003-E004",
-          "libro_id": "L0003",
-          "titulo": "Libro 3",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
-        },
-        {
-          "ejemplar_id": "L0003-E005",
-          "libro_id": "L0003",
-          "titulo": "Libro 3",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0004",
       "titulo": "Libro 4",
-      "total_ejemplares": 4,
-      "ejemplares_disponibles": 4,
+      "total_ejemplares": 3,
+      "ejemplares_disponibles": 3,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -204,23 +150,14 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
-        },
-        {
-          "ejemplar_id": "L0004-E004",
-          "libro_id": "L0004",
-          "titulo": "Libro 4",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0005",
       "titulo": "Libro 5",
-      "total_ejemplares": 5,
-      "ejemplares_disponibles": 5,
+      "total_ejemplares": 3,
+      "ejemplares_disponibles": 3,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -249,32 +186,14 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
-        },
-        {
-          "ejemplar_id": "L0005-E004",
-          "libro_id": "L0005",
-          "titulo": "Libro 5",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
-        },
-        {
-          "ejemplar_id": "L0005-E005",
-          "libro_id": "L0005",
-          "titulo": "Libro 5",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0006",
       "titulo": "Libro 6",
-      "total_ejemplares": 2,
-      "ejemplares_disponibles": 2,
+      "total_ejemplares": 3,
+      "ejemplares_disponibles": 3,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -294,14 +213,23 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
+        },
+        {
+          "ejemplar_id": "L0006-E003",
+          "libro_id": "L0006",
+          "titulo": "Libro 6",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0007",
       "titulo": "Libro 7",
-      "total_ejemplares": 2,
-      "ejemplares_disponibles": 2,
+      "total_ejemplares": 5,
+      "ejemplares_disponibles": 5,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -315,6 +243,33 @@
         },
         {
           "ejemplar_id": "L0007-E002",
+          "libro_id": "L0007",
+          "titulo": "Libro 7",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
+        },
+        {
+          "ejemplar_id": "L0007-E003",
+          "libro_id": "L0007",
+          "titulo": "Libro 7",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
+        },
+        {
+          "ejemplar_id": "L0007-E004",
+          "libro_id": "L0007",
+          "titulo": "Libro 7",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
+        },
+        {
+          "ejemplar_id": "L0007-E005",
           "libro_id": "L0007",
           "titulo": "Libro 7",
           "estado": "disponible",
@@ -372,8 +327,8 @@
     {
       "libro_id": "L0009",
       "titulo": "Libro 9",
-      "total_ejemplares": 4,
-      "ejemplares_disponibles": 4,
+      "total_ejemplares": 5,
+      "ejemplares_disponibles": 5,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -411,14 +366,23 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
+        },
+        {
+          "ejemplar_id": "L0009-E005",
+          "libro_id": "L0009",
+          "titulo": "Libro 9",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0010",
       "titulo": "Libro 10",
-      "total_ejemplares": 2,
-      "ejemplares_disponibles": 2,
+      "total_ejemplares": 5,
+      "ejemplares_disponibles": 5,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -438,14 +402,41 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
+        },
+        {
+          "ejemplar_id": "L0010-E003",
+          "libro_id": "L0010",
+          "titulo": "Libro 10",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
+        },
+        {
+          "ejemplar_id": "L0010-E004",
+          "libro_id": "L0010",
+          "titulo": "Libro 10",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
+        },
+        {
+          "ejemplar_id": "L0010-E005",
+          "libro_id": "L0010",
+          "titulo": "Libro 10",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0011",
       "titulo": "Libro 11",
-      "total_ejemplares": 3,
-      "ejemplares_disponibles": 3,
+      "total_ejemplares": 2,
+      "ejemplares_disponibles": 2,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -465,23 +456,14 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
-        },
-        {
-          "ejemplar_id": "L0011-E003",
-          "libro_id": "L0011",
-          "titulo": "Libro 11",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0012",
       "titulo": "Libro 12",
-      "total_ejemplares": 2,
-      "ejemplares_disponibles": 2,
+      "total_ejemplares": 4,
+      "ejemplares_disponibles": 4,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -501,14 +483,32 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
+        },
+        {
+          "ejemplar_id": "L0012-E003",
+          "libro_id": "L0012",
+          "titulo": "Libro 12",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
+        },
+        {
+          "ejemplar_id": "L0012-E004",
+          "libro_id": "L0012",
+          "titulo": "Libro 12",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0013",
       "titulo": "Libro 13",
-      "total_ejemplares": 3,
-      "ejemplares_disponibles": 3,
+      "total_ejemplares": 4,
+      "ejemplares_disponibles": 4,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -537,14 +537,23 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
+        },
+        {
+          "ejemplar_id": "L0013-E004",
+          "libro_id": "L0013",
+          "titulo": "Libro 13",
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0014",
       "titulo": "Libro 14",
-      "total_ejemplares": 4,
-      "ejemplares_disponibles": 4,
+      "total_ejemplares": 2,
+      "ejemplares_disponibles": 2,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -564,32 +573,14 @@
           "fecha_devolucion": null,
           "usuario_prestamo": null,
           "sede": null
-        },
-        {
-          "ejemplar_id": "L0014-E003",
-          "libro_id": "L0014",
-          "titulo": "Libro 14",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
-        },
-        {
-          "ejemplar_id": "L0014-E004",
-          "libro_id": "L0014",
-          "titulo": "Libro 14",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
         }
       ]
     },
     {
       "libro_id": "L0015",
       "titulo": "Libro 15",
-      "total_ejemplares": 3,
-      "ejemplares_disponibles": 3,
+      "total_ejemplares": 2,
+      "ejemplares_disponibles": 2,
       "ejemplares_prestados": 0,
       "ejemplares": [
         {
@@ -603,15 +594,6 @@
         },
         {
           "ejemplar_id": "L0015-E002",
-          "libro_id": "L0015",
-          "titulo": "Libro 15",
-          "estado": "disponible",
-          "fecha_devolucion": null,
-          "usuario_prestamo": null,
-          "sede": null
-        },
-        {
-          "ejemplar_id": "L0015-E003",
           "libro_id": "L0015",
           "titulo": "Libro 15",
           "estado": "disponible",
@@ -687,33 +669,6 @@
       "sede": null
     },
     {
-      "ejemplar_id": "L0002-E003",
-      "libro_id": "L0002",
-      "titulo": "Libro 2",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
-      "ejemplar_id": "L0002-E004",
-      "libro_id": "L0002",
-      "titulo": "Libro 2",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
-      "ejemplar_id": "L0002-E005",
-      "libro_id": "L0002",
-      "titulo": "Libro 2",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
       "ejemplar_id": "L0003-E001",
       "libro_id": "L0003",
       "titulo": "Libro 3",
@@ -724,33 +679,6 @@
     },
     {
       "ejemplar_id": "L0003-E002",
-      "libro_id": "L0003",
-      "titulo": "Libro 3",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
-      "ejemplar_id": "L0003-E003",
-      "libro_id": "L0003",
-      "titulo": "Libro 3",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
-      "ejemplar_id": "L0003-E004",
-      "libro_id": "L0003",
-      "titulo": "Libro 3",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
-      "ejemplar_id": "L0003-E005",
       "libro_id": "L0003",
       "titulo": "Libro 3",
       "estado": "disponible",
@@ -786,15 +714,6 @@
       "sede": null
     },
     {
-      "ejemplar_id": "L0004-E004",
-      "libro_id": "L0004",
-      "titulo": "Libro 4",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
       "ejemplar_id": "L0005-E001",
       "libro_id": "L0005",
       "titulo": "Libro 5",
@@ -822,24 +741,6 @@
       "sede": null
     },
     {
-      "ejemplar_id": "L0005-E004",
-      "libro_id": "L0005",
-      "titulo": "Libro 5",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
-      "ejemplar_id": "L0005-E005",
-      "libro_id": "L0005",
-      "titulo": "Libro 5",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
       "ejemplar_id": "L0006-E001",
       "libro_id": "L0006",
       "titulo": "Libro 6",
@@ -858,6 +759,15 @@
       "sede": null
     },
     {
+      "ejemplar_id": "L0006-E003",
+      "libro_id": "L0006",
+      "titulo": "Libro 6",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
       "ejemplar_id": "L0007-E001",
       "libro_id": "L0007",
       "titulo": "Libro 7",
@@ -868,6 +778,33 @@
     },
     {
       "ejemplar_id": "L0007-E002",
+      "libro_id": "L0007",
+      "titulo": "Libro 7",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
+      "ejemplar_id": "L0007-E003",
+      "libro_id": "L0007",
+      "titulo": "Libro 7",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
+      "ejemplar_id": "L0007-E004",
+      "libro_id": "L0007",
+      "titulo": "Libro 7",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
+      "ejemplar_id": "L0007-E005",
       "libro_id": "L0007",
       "titulo": "Libro 7",
       "estado": "disponible",
@@ -948,6 +885,15 @@
       "sede": null
     },
     {
+      "ejemplar_id": "L0009-E005",
+      "libro_id": "L0009",
+      "titulo": "Libro 9",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
       "ejemplar_id": "L0010-E001",
       "libro_id": "L0010",
       "titulo": "Libro 10",
@@ -958,6 +904,33 @@
     },
     {
       "ejemplar_id": "L0010-E002",
+      "libro_id": "L0010",
+      "titulo": "Libro 10",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
+      "ejemplar_id": "L0010-E003",
+      "libro_id": "L0010",
+      "titulo": "Libro 10",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
+      "ejemplar_id": "L0010-E004",
+      "libro_id": "L0010",
+      "titulo": "Libro 10",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
+      "ejemplar_id": "L0010-E005",
       "libro_id": "L0010",
       "titulo": "Libro 10",
       "estado": "disponible",
@@ -984,15 +957,6 @@
       "sede": null
     },
     {
-      "ejemplar_id": "L0011-E003",
-      "libro_id": "L0011",
-      "titulo": "Libro 11",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
       "ejemplar_id": "L0012-E001",
       "libro_id": "L0012",
       "titulo": "Libro 12",
@@ -1003,6 +967,24 @@
     },
     {
       "ejemplar_id": "L0012-E002",
+      "libro_id": "L0012",
+      "titulo": "Libro 12",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
+      "ejemplar_id": "L0012-E003",
+      "libro_id": "L0012",
+      "titulo": "Libro 12",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
+      "ejemplar_id": "L0012-E004",
       "libro_id": "L0012",
       "titulo": "Libro 12",
       "estado": "disponible",
@@ -1038,6 +1020,15 @@
       "sede": null
     },
     {
+      "ejemplar_id": "L0013-E004",
+      "libro_id": "L0013",
+      "titulo": "Libro 13",
+      "estado": "disponible",
+      "fecha_devolucion": null,
+      "usuario_prestamo": null,
+      "sede": null
+    },
+    {
       "ejemplar_id": "L0014-E001",
       "libro_id": "L0014",
       "titulo": "Libro 14",
@@ -1056,24 +1047,6 @@
       "sede": null
     },
     {
-      "ejemplar_id": "L0014-E003",
-      "libro_id": "L0014",
-      "titulo": "Libro 14",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
-      "ejemplar_id": "L0014-E004",
-      "libro_id": "L0014",
-      "titulo": "Libro 14",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
       "ejemplar_id": "L0015-E001",
       "libro_id": "L0015",
       "titulo": "Libro 15",
@@ -1084,15 +1057,6 @@
     },
     {
       "ejemplar_id": "L0015-E002",
-      "libro_id": "L0015",
-      "titulo": "Libro 15",
-      "estado": "disponible",
-      "fecha_devolucion": null,
-      "usuario_prestamo": null,
-      "sede": null
-    },
-    {
-      "ejemplar_id": "L0015-E003",
       "libro_id": "L0015",
       "titulo": "Libro 15",
       "estado": "disponible",
