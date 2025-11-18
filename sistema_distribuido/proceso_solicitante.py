@@ -229,6 +229,7 @@ class ProcesoSolicitante:
         """Inicia el Proceso Solicitante"""
         try:
             logger.info("Iniciando Proceso Solicitante...")
+            logger.info(f"Archivo de solicitudes especificado: {archivo_solicitudes}")
             
             # Conectar al Gestor de Carga
             self.conectar_gestor_carga()
@@ -256,13 +257,21 @@ def main():
     """Función principal"""
     import sys
     
+    # Debug: mostrar argumentos recibidos (usar print para asegurar que se vea)
+    print(f"DEBUG: Argumentos recibidos: {sys.argv}", file=sys.stderr)
+    logger.info(f"Argumentos recibidos: {sys.argv}")
+    
     ps = ProcesoSolicitante()
     
     # Aceptar archivo como argumento de línea de comandos
     if len(sys.argv) > 1:
         archivo_solicitudes = sys.argv[1]
+        print(f"DEBUG: Usando archivo de argumento: {archivo_solicitudes}", file=sys.stderr)
+        logger.info(f"Usando archivo de argumento: {archivo_solicitudes}")
         ps.iniciar(archivo_solicitudes)
     else:
+        print("DEBUG: No se proporcionó archivo, usando por defecto: data/solicitudes.txt", file=sys.stderr)
+        logger.info("No se proporcionó archivo, usando por defecto: data/solicitudes.txt")
         ps.iniciar()
 
 if __name__ == "__main__":

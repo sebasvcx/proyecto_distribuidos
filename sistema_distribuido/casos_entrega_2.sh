@@ -119,16 +119,16 @@ base_datos = {
     "ejemplares": ejemplares_totales
 }
 
-# Guardar en archivo principal
-with open('data/libros.json', 'w', encoding='utf-8') as f:
-    json.dump(base_datos, f, ensure_ascii=False, indent=2)
-
 # Crear directorios para réplicas
 import os
 os.makedirs('data/primary', exist_ok=True)
 os.makedirs('data/secondary', exist_ok=True)
 
-# Guardar en réplica primaria
+# Guardar en archivo principal (para referencia)
+with open('data/libros.json', 'w', encoding='utf-8') as f:
+    json.dump(base_datos, f, ensure_ascii=False, indent=2)
+
+# Guardar en réplica primaria (GA lee/escribe desde aquí)
 with open('data/primary/libros.json', 'w', encoding='utf-8') as f:
     json.dump(base_datos, f, ensure_ascii=False, indent=2)
 
@@ -137,6 +137,7 @@ import shutil
 shutil.copy2('data/primary/libros.json', 'data/secondary/libros.json')
 
 print(f"Base de datos pequeña generada: {len(libros)} libros, {len(ejemplares_totales)} ejemplares")
+print(f"Guardada en: data/libros.json, data/primary/libros.json, data/secondary/libros.json")
 PYTHON_EOF
 
     if [ $? -eq 0 ]; then
@@ -159,9 +160,20 @@ mostrar_estado_bd() {
     python3 << 'PYTHON_EOF'
 import json
 import sys
+import os
+
+# El GA escribe en data/primary/libros.json, así que leemos desde ahí
+# Si no existe, intentamos data/libros.json como fallback
+archivo_bd = 'data/primary/libros.json'
+if not os.path.exists(archivo_bd):
+    archivo_bd = 'data/libros.json'
+
+# Debug: mostrar qué archivo estamos leyendo
+print(f"Leyendo desde: {archivo_bd}", file=sys.stderr)
 
 try:
-    with open('data/libros.json', 'r') as f:
+    # Forzar lectura fresca del archivo
+    with open(archivo_bd, 'r') as f:
         data = json.load(f)
     
     meta = data['metadata']
@@ -224,8 +236,33 @@ ejecutar_ps_archivo() {
     
     show_info "Ejecutando PS con archivo: $archivo"
     
-    docker compose run --rm -e GC_HOST=gc -e GC_PORT=5001 ps python proceso_solicitante.py "$archivo" > "$nombre_log" 2>&1
+    # Verificar que el archivo existe antes de ejecutar
+    if [ ! -f "$archivo" ]; then
+        show_error "Archivo no encontrado: $archivo"
+        return 1
+    fi
+    
+    # Mostrar contenido del archivo para debug
+    show_info "Contenido del archivo a procesar:"
+    cat "$archivo" | sed 's/^/  /'
+    echo
+    
+    # El volumen monta ./data:/app/data, así que data/archivo.txt -> /app/data/archivo.txt
+    # Pero si el archivo ya tiene "data/" en el path, solo necesitamos /app/
+    if [[ "$archivo" == data/* ]]; then
+        archivo_en_contenedor="/app/$archivo"
+    else
+        archivo_en_contenedor="/app/data/$archivo"
+    fi
+    
+    show_info "Ejecutando PS con archivo en contenedor: $archivo_en_contenedor"
+    # Usar --no-deps y sobrescribir el comando completo para asegurar que se pase el argumento
+    # El problema es que docker-compose tiene un command por defecto, así que debemos sobrescribirlo completamente
+    docker compose run --rm --no-deps -e GC_HOST=gc -e GC_PORT=5001 --entrypoint python ps proceso_solicitante.py "$archivo_en_contenedor" > "$nombre_log" 2>&1
     local resultado=$?
+    
+    # Esperar un poco más para que el GA termine de procesar y escribir
+    sleep 3
     
     if [ $resultado -eq 0 ]; then
         show_success "PS ejecutado correctamente"
@@ -370,11 +407,30 @@ EOF
     echo -e "${YELLOW}=== OPERACIÓN 1: PRESTAMO desde SEDE_2 ===${NC}"
     echo "PRESTAMO L0001 U0001 SEDE_2" > "data/caso1_prestamo.txt"
     if ejecutar_ps_archivo "data/caso1_prestamo.txt" "logs/caso1_prestamo.log"; then
+        # Mostrar resumen del log - buscar solo la solicitud actual
+        if [ -f "logs/caso1_prestamo.log" ]; then
+            echo
+            show_info "Resumen de ejecución:"
+            # Buscar líneas con la solicitud actual (L0001 U0001 SEDE_2 para préstamo)
+            grep -E "PRESTAMO.*L0001.*U0001.*SEDE_2|Solicitud.*L0001|L0001.*U0001|exitoso|Error|ERROR" "logs/caso1_prestamo.log" | head -10 | sed 's/^/  /'
+            # Si no encuentra nada específico, mostrar las últimas líneas relevantes
+            if [ $? -ne 0 ] || [ -z "$(grep -E "PRESTAMO.*L0001|Solicitud.*L0001" logs/caso1_prestamo.log)" ]; then
+                echo "  Mostrando últimas líneas del log:"
+                tail -10 "logs/caso1_prestamo.log" | grep -E "INFO|ERROR|Solicitud|Respuesta" | tail -5 | sed 's/^/  /'
+            fi
+            echo
+        fi
+        # Esperar adicional para que el GA termine de escribir
+        show_info "Esperando que el GA termine de procesar y escribir cambios..."
         sleep 2
         mostrar_estado_bd "Estado después de PRESTAMO"
         echo -e "${GREEN}✓ PRESTAMO completado desde SEDE_2${NC}"
     else
         show_error "Error ejecutando PRESTAMO"
+        if [ -f "logs/caso1_prestamo.log" ]; then
+            show_info "Últimas líneas del log:"
+            tail -10 "logs/caso1_prestamo.log" | sed 's/^/  /'
+        fi
     fi
     pause
     
@@ -382,6 +438,8 @@ EOF
     echo -e "${YELLOW}=== OPERACIÓN 2: DEVOLUCION desde SEDE_2 ===${NC}"
     echo "DEVOLUCION L0001 U0001 SEDE_2" > "data/caso1_devolucion.txt"
     if ejecutar_ps_archivo "data/caso1_devolucion.txt" "logs/caso1_devolucion.log"; then
+        # Esperar adicional para que el GA termine de escribir
+        show_info "Esperando que el GA termine de procesar y escribir cambios..."
         sleep 2
         mostrar_estado_bd "Estado después de DEVOLUCION"
         echo -e "${GREEN}✓ DEVOLUCION completada desde SEDE_2${NC}"
@@ -403,6 +461,8 @@ EOF
     echo -e "${YELLOW}Ahora ejecutando RENOVACION...${NC}"
     echo "RENOVACION L0001 U0001 SEDE_2" > "data/caso1_renovacion.txt"
     if ejecutar_ps_archivo "data/caso1_renovacion.txt" "logs/caso1_renovacion.log"; then
+        # Esperar adicional para que el GA termine de escribir
+        show_info "Esperando que el GA termine de procesar y escribir cambios..."
         sleep 2
         mostrar_estado_bd "Estado después de RENOVACION"
         echo -e "${GREEN}✓ RENOVACION completada desde SEDE_2${NC}"

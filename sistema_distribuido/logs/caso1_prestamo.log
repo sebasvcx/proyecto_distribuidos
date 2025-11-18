@@ -1,0 +1,142 @@
+ Container ga  Running
+ Container gc  Running
+ Container actor_dev  Running
+ Container actor_ren  Running
+ Container actor_prestamo  Running
+2025-11-18 18:38:21 - PS - INFO - 🚀 Iniciando Proceso Solicitante...
+2025-11-18 18:38:21 - PS - INFO - ✅ Conectado al Gestor de Carga en tcp://gc:5001
+2025-11-18 18:38:23 - PS - INFO - 🔄 Iniciando procesamiento de solicitudes...
+2025-11-18 18:38:23 - PS - INFO - 📖 Leídas 21 solicitudes desde data/solicitudes.txt
+2025-11-18 18:38:23 - PS - INFO - 📊 Procesando 21 solicitudes...
+2025-11-18 18:38:23 - PS - INFO - 🔄 Procesando solicitud 1/21: RENOVACION - L0001 - U0231
+2025-11-18 18:38:23 - PS - INFO - 📤 Solicitud #1 enviada: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U0231", "sede": "SEDE_1"}
+2025-11-18 18:38:23 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 18:38:23 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:23 - PS - INFO - ✅ Solicitud 1 completada
+2025-11-18 18:38:23 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:24 - PS - INFO - 🔄 Procesando solicitud 2/21: RENOVACION - L0002 - U0456
+2025-11-18 18:38:24 - PS - INFO - 📤 Solicitud #2 enviada: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 18:38:24 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 18:38:24 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:24 - PS - INFO - ✅ Solicitud 2 completada
+2025-11-18 18:38:24 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:25 - PS - INFO - 🔄 Procesando solicitud 3/21: RENOVACION - L0003 - U0789
+2025-11-18 18:38:25 - PS - INFO - 📤 Solicitud #3 enviada: {"op": "RENOVACION", "libro_id": "L0003", "usuario_id": "U0789", "sede": "SEDE_1"}
+2025-11-18 18:38:25 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0003"}
+2025-11-18 18:38:25 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:25 - PS - INFO - ✅ Solicitud 3 completada
+2025-11-18 18:38:25 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:26 - PS - INFO - 🔄 Procesando solicitud 4/21: DEVOLUCION - L0001 - U0197
+2025-11-18 18:38:26 - PS - INFO - 📤 Solicitud #4 enviada: {"op": "DEVOLUCION", "libro_id": "L0001", "usuario_id": "U0197", "sede": "SEDE_1"}
+2025-11-18 18:38:26 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0001"}
+2025-11-18 18:38:26 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:26 - PS - INFO - ✅ Solicitud 4 completada
+2025-11-18 18:38:26 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:27 - PS - INFO - 🔄 Procesando solicitud 5/21: DEVOLUCION - L0002 - U0123
+2025-11-18 18:38:27 - PS - INFO - 📤 Solicitud #5 enviada: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1"}
+2025-11-18 18:38:27 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 18:38:27 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:27 - PS - INFO - ✅ Solicitud 5 completada
+2025-11-18 18:38:27 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:28 - PS - INFO - 🔄 Procesando solicitud 6/21: RENOVACION - L0004 - U1001
+2025-11-18 18:38:28 - PS - INFO - 📤 Solicitud #6 enviada: {"op": "RENOVACION", "libro_id": "L0004", "usuario_id": "U1001", "sede": "SEDE_2"}
+2025-11-18 18:38:28 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0004"}
+2025-11-18 18:38:28 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:28 - PS - INFO - ✅ Solicitud 6 completada
+2025-11-18 18:38:28 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:29 - PS - INFO - 🔄 Procesando solicitud 7/21: RENOVACION - L0005 - U1002
+2025-11-18 18:38:29 - PS - INFO - 📤 Solicitud #7 enviada: {"op": "RENOVACION", "libro_id": "L0005", "usuario_id": "U1002", "sede": "SEDE_2"}
+2025-11-18 18:38:29 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0005"}
+2025-11-18 18:38:29 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:29 - PS - INFO - ✅ Solicitud 7 completada
+2025-11-18 18:38:29 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:30 - PS - INFO - 🔄 Procesando solicitud 8/21: RENOVACION - L0006 - U1003
+2025-11-18 18:38:30 - PS - INFO - 📤 Solicitud #8 enviada: {"op": "RENOVACION", "libro_id": "L0006", "usuario_id": "U1003", "sede": "SEDE_2"}
+2025-11-18 18:38:30 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0006"}
+2025-11-18 18:38:30 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:30 - PS - INFO - ✅ Solicitud 8 completada
+2025-11-18 18:38:30 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:31 - PS - INFO - 🔄 Procesando solicitud 9/21: DEVOLUCION - L0004 - U1004
+2025-11-18 18:38:31 - PS - INFO - 📤 Solicitud #9 enviada: {"op": "DEVOLUCION", "libro_id": "L0004", "usuario_id": "U1004", "sede": "SEDE_2"}
+2025-11-18 18:38:31 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0004"}
+2025-11-18 18:38:31 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:31 - PS - INFO - ✅ Solicitud 9 completada
+2025-11-18 18:38:31 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:32 - PS - INFO - 🔄 Procesando solicitud 10/21: DEVOLUCION - L0005 - U1005
+2025-11-18 18:38:32 - PS - INFO - 📤 Solicitud #10 enviada: {"op": "DEVOLUCION", "libro_id": "L0005", "usuario_id": "U1005", "sede": "SEDE_2"}
+2025-11-18 18:38:32 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0005"}
+2025-11-18 18:38:32 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:32 - PS - INFO - ✅ Solicitud 10 completada
+2025-11-18 18:38:32 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:33 - PS - INFO - 🔄 Procesando solicitud 11/21: RENOVACION - L0007 - U1006
+2025-11-18 18:38:33 - PS - INFO - 📤 Solicitud #11 enviada: {"op": "RENOVACION", "libro_id": "L0007", "usuario_id": "U1006", "sede": "SEDE_2"}
+2025-11-18 18:38:33 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0007"}
+2025-11-18 18:38:33 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:33 - PS - INFO - ✅ Solicitud 11 completada
+2025-11-18 18:38:33 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:34 - PS - INFO - 🔄 Procesando solicitud 12/21: DEVOLUCION - L0008 - U1007
+2025-11-18 18:38:34 - PS - INFO - 📤 Solicitud #12 enviada: {"op": "DEVOLUCION", "libro_id": "L0008", "usuario_id": "U1007", "sede": "SEDE_2"}
+2025-11-18 18:38:34 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0008"}
+2025-11-18 18:38:34 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:34 - PS - INFO - ✅ Solicitud 12 completada
+2025-11-18 18:38:34 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:35 - PS - INFO - 🔄 Procesando solicitud 13/21: RENOVACION - L0009 - U1008
+2025-11-18 18:38:35 - PS - INFO - 📤 Solicitud #13 enviada: {"op": "RENOVACION", "libro_id": "L0009", "usuario_id": "U1008", "sede": "SEDE_1"}
+2025-11-18 18:38:35 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0009"}
+2025-11-18 18:38:35 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:35 - PS - INFO - ✅ Solicitud 13 completada
+2025-11-18 18:38:35 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:36 - PS - INFO - 🔄 Procesando solicitud 14/21: DEVOLUCION - L0010 - U1009
+2025-11-18 18:38:36 - PS - INFO - 📤 Solicitud #14 enviada: {"op": "DEVOLUCION", "libro_id": "L0010", "usuario_id": "U1009", "sede": "SEDE_1"}
+2025-11-18 18:38:36 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0010"}
+2025-11-18 18:38:36 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:36 - PS - INFO - ✅ Solicitud 14 completada
+2025-11-18 18:38:36 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:37 - PS - INFO - 🔄 Procesando solicitud 15/21: RENOVACION - L0002 - U0456
+2025-11-18 18:38:37 - PS - INFO - 📤 Solicitud #15 enviada: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 18:38:37 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 18:38:37 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:37 - PS - INFO - ✅ Solicitud 15 completada
+2025-11-18 18:38:37 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:38 - PS - INFO - 🔄 Procesando solicitud 16/21: DEVOLUCION - L0002 - U0123
+2025-11-18 18:38:38 - PS - INFO - 📤 Solicitud #16 enviada: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U0123", "sede": "SEDE_1"}
+2025-11-18 18:38:39 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 18:38:39 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:39 - PS - INFO - ✅ Solicitud 16 completada
+2025-11-18 18:38:39 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:40 - PS - INFO - 🔄 Procesando solicitud 17/21: RENOVACION - L0002 - U0456
+2025-11-18 18:38:40 - PS - INFO - 📤 Solicitud #17 enviada: {"op": "RENOVACION", "libro_id": "L0002", "usuario_id": "U0456", "sede": "SEDE_1"}
+2025-11-18 18:38:40 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0002"}
+2025-11-18 18:38:40 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:40 - PS - INFO - ✅ Solicitud 17 completada
+2025-11-18 18:38:40 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:41 - PS - INFO - 🔄 Procesando solicitud 18/21: RENOVACION - L9999 - U9999
+2025-11-18 18:38:41 - PS - INFO - 📤 Solicitud #18 enviada: {"op": "RENOVACION", "libro_id": "L9999", "usuario_id": "U9999", "sede": "SEDE_1"}
+2025-11-18 18:38:41 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L9999"}
+2025-11-18 18:38:41 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:41 - PS - INFO - ✅ Solicitud 18 completada
+2025-11-18 18:38:41 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:42 - PS - INFO - 🔄 Procesando solicitud 19/21: DEVOLUCION - L9998 - U9998
+2025-11-18 18:38:42 - PS - INFO - 📤 Solicitud #19 enviada: {"op": "DEVOLUCION", "libro_id": "L9998", "usuario_id": "U9998", "sede": "SEDE_2"}
+2025-11-18 18:38:42 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L9998"}
+2025-11-18 18:38:42 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:42 - PS - INFO - ✅ Solicitud 19 completada
+2025-11-18 18:38:42 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:43 - PS - INFO - 🔄 Procesando solicitud 20/21: RENOVACION - L0001 - U9999
+2025-11-18 18:38:43 - PS - INFO - 📤 Solicitud #20 enviada: {"op": "RENOVACION", "libro_id": "L0001", "usuario_id": "U9999", "sede": "SEDE_1"}
+2025-11-18 18:38:43 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "RENOVACION", "libro_id": "L0001"}
+2025-11-18 18:38:43 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:43 - PS - INFO - ✅ Solicitud 20 completada
+2025-11-18 18:38:43 - PS - INFO - ⏳ Esperando 1 segundo antes de la siguiente solicitud...
+2025-11-18 18:38:44 - PS - INFO - 🔄 Procesando solicitud 21/21: DEVOLUCION - L0002 - U9998
+2025-11-18 18:38:44 - PS - INFO - 📤 Solicitud #21 enviada: {"op": "DEVOLUCION", "libro_id": "L0002", "usuario_id": "U9998", "sede": "SEDE_1"}
+2025-11-18 18:38:44 - PS - INFO - 📥 Respuesta recibida: {"status": "OK", "message": "Recibido. Procesando...", "operacion": "DEVOLUCION", "libro_id": "L0002"}
+2025-11-18 18:38:44 - PS - INFO - ✅ Solicitud procesada exitosamente
+2025-11-18 18:38:44 - PS - INFO - ✅ Solicitud 21 completada
+2025-11-18 18:38:44 - PS - INFO - 📊 ===== ESTADÍSTICAS FINALES =====
+2025-11-18 18:38:44 - PS - INFO - 📤 Total de solicitudes enviadas: 21
+2025-11-18 18:38:44 - PS - INFO - ✅ Solicitudes exitosas: 21
+2025-11-18 18:38:44 - PS - INFO - ❌ Solicitudes con error: 0
+2025-11-18 18:38:44 - PS - INFO - 📈 Porcentaje de éxito: 100.0%
+2025-11-18 18:38:44 - PS - INFO - 📊 ================================
+2025-11-18 18:38:44 - PS - INFO - ✅ Proceso Solicitante detenido
