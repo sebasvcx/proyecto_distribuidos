@@ -17,11 +17,27 @@ package "Gestor de Carga (GC)" {
   [GestorCarga] as GC
   note right of GC
   **Funcionalidades:**
-  • REQ/REP en puerto 5001
-  • PUB/SUB en puerto 5002
+  • REQ/REP en puerto 5001 (recibe de PS)
+  • PUB/SUB en puerto 5002 (envía eventos)
+  • REQ/REP a Actor Préstamo (puerto 5004)
+  • REQ/REP a GA (puerto 5003)
   • Procesamiento de solicitudes
   • Creación de eventos
-  • Validación de operaciones
+  • Modo serial/multithread
+  • Health checks a GA
+  end note
+}
+
+package "Gestor de Almacenamiento (GA)" {
+  [GestorAlmacenamiento] as GA
+  note right of GA
+  **Funcionalidades:**
+  • REP en puerto 5003
+  • Gestión de réplicas (primaria/secundaria)
+  • Operaciones de base de datos
+  • Failover automático
+  • Replicación asíncrona
+  • Health checks
   end note
 }
 
@@ -32,7 +48,20 @@ package "Proceso Solicitante (PS)" {
   • Lectura de archivo solicitudes
   • Envío de solicitudes REQ/REP
   • Manejo de estadísticas
+  • Registro de métricas
   • Procesamiento de respuestas
+  end note
+}
+
+package "Actor de Préstamo" {
+  [ActorPrestamo] as AP
+  note right of AP
+  **Funcionalidades:**
+  • REP en puerto 5004 (recibe de GC)
+  • REQ/REP a GA (puerto 5003)
+  • Procesamiento de préstamos
+  • Búsqueda de libros
+  • Validación de disponibilidad
   end note
 }
 
@@ -41,9 +70,9 @@ package "Actor de Devolución" {
   note right of AD
   **Funcionalidades:**
   • Suscripción a topic "devolucion"
+  • REQ/REP a GA (puerto 5003)
   • Procesamiento de devoluciones
-  • Actualización de ejemplares
-  • Gestión de archivos JSON
+  • Failover automático
   end note
 }
 
@@ -52,15 +81,17 @@ package "Actor de Renovación" {
   note right of AR
   **Funcionalidades:**
   • Suscripción a topic "renovacion"
+  • REQ/REP a GA (puerto 5003)
   • Procesamiento de renovaciones
   • Actualización de fechas
-  • Gestión de archivos JSON
+  • Failover automático
   end note
 }
 
 ' ====================== Capa de Datos ======================
 package "Capa de Datos" {
-  [libros.json] as LibrosDB
+  [Réplica Primaria\nlibros.json] as LibrosPrimary
+  [Réplica Secundaria\nlibros.json] as LibrosSecondary
   [solicitudes.txt] as SolicitudesFile
   [Backup Files] as BackupFiles
 }
@@ -70,17 +101,22 @@ package "Infraestructura" {
   [ZeroMQ] as ZMQ
   [Docker Network] as DockerNet
   [Logging] as LOG
+  [FailoverManager] as Failover
 }
 
 ' ====================== Relaciones ======================
 
-' --- Comunicación REQ/REP ---
+' --- Comunicación REQ/REP Principal ---
 PS --> GC : REQ/REP (puerto 5001)
 note right of PS
 **Comunicación síncrona**
 Request-Response
 Solicitudes inmediatas
 end note
+
+' --- Comunicación GC con Actores ---
+GC --> AP : REQ/REP (puerto 5004)\npara préstamos
+GC --> GA : REQ/REP (puerto 5003)\nhealth checks
 
 ' --- Comunicación PUB/SUB ---
 GC --> AD : PUB/SUB (puerto 5002, topic: devolucion)
@@ -91,32 +127,59 @@ Publisher-Subscriber
 Eventos distribuidos
 end note
 
+' --- Comunicación Actores con GA ---
+AP --> GA : REQ/REP (puerto 5003)\nLOAN_BOOK, GET_BOOK
+AD --> GA : REQ/REP (puerto 5003)\nRETURN_BOOK
+AR --> GA : REQ/REP (puerto 5003)\nRENEW_BOOK
+note right of GA
+**Gestión centralizada**
+Todas las operaciones de BD
+pasan por GA
+end note
+
 ' --- Acceso a Archivos ---
 PS --> SolicitudesFile : lee
-AD --> LibrosDB : lee/escribe
-AR --> LibrosDB : lee/escribe
-AD --> BackupFiles : crea backup
-AR --> BackupFiles : crea backup
+GA --> LibrosPrimary : lee/escribe
+GA --> LibrosSecondary : lee/escribe (réplica)
+GA --> BackupFiles : crea backup
 
 ' --- Infraestructura ---
 GC --> ZMQ : usa
 PS --> ZMQ : usa
+GA --> ZMQ : usa
+AP --> ZMQ : usa
 AD --> ZMQ : usa
 AR --> ZMQ : usa
 ZMQ --> DockerNet : comunica a través de
 
+' --- Failover ---
+AP --> Failover : usa
+AD --> Failover : usa
+AR --> Failover : usa
+GC --> Failover : usa
+Failover --> GA : gestiona conexión
+
 ' --- Logging ---
 GC --> LOG : registra eventos
 PS --> LOG : registra solicitudes
+GA --> LOG : registra operaciones BD
+AP --> LOG : registra préstamos
 AD --> LOG : registra devoluciones
 AR --> LOG : registra renovaciones
 
 ' ====================== Notas ======================
-note bottom of LibrosDB
-**Estado compartido**
-Actualizado por ambos actores
-Control de concurrencia básico
-Archivo JSON con backup automático
+note bottom of LibrosPrimary
+**Réplica Primaria**
+Archivo principal de datos
+Actualizado por GA
+Con control de concurrencia
+end note
+
+note bottom of LibrosSecondary
+**Réplica Secundaria**
+Copia de seguridad
+Replicación asíncrona
+Failover automático
 end note
 
 note top of ZMQ
@@ -130,7 +193,14 @@ note right of DockerNet
 **Red Docker**
 Bridge network
 Comunicación entre contenedores
-Nombres de host: gc, actor_dev, actor_ren, ps
+Nombres de host: gc, ga, actor_prestamo,\nactor_dev, actor_ren, ps
+end note
+
+note left of Failover
+**Failover Manager**
+Gestión de reconexión
+Health checks periódicos
+Manejo de errores
 end note
 
 @enduml

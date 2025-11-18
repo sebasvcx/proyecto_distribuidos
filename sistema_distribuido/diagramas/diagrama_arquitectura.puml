@@ -29,10 +29,22 @@ cloud "Red Docker\n(red_distribuida)" as Network {
   rectangle "Contenedor GC" as GC {
     component "Gestor de Carga" as GC_Service
     note right of GC_Service
-      • Puerto 5001: REQ/REP
-      • Puerto 5002: PUB/SUB
-      • Coordina solicitudes
-      • Publica eventos
+      • Puerto 5001: REQ/REP (recibe de PS)
+      • Puerto 5002: PUB/SUB (envía eventos)
+      • REQ a Actor Préstamo (5004)
+      • REQ a GA (5003)
+      • Modo serial/multithread
+    end note
+  }
+
+  ' === Contenedor GA ===
+  rectangle "Contenedor GA" as GA {
+    component "Gestor de Almacenamiento" as GA_Service
+    note right of GA_Service
+      • Puerto 5003: REP
+      • Gestiona réplicas
+      • Operaciones de BD
+      • Failover automático
     end note
   }
 
@@ -42,7 +54,19 @@ cloud "Red Docker\n(red_distribuida)" as Network {
     note right of PS_Service
       • Lee solicitudes.txt
       • Envía solicitudes JSON
+      • Registra métricas
       • Comunicación síncrona
+    end note
+  }
+
+  ' === Contenedor Actor Préstamo ===
+  rectangle "Contenedor Actor Préstamo" as ActorPrest {
+    component "Actor Préstamo" as ActorPrest_Service
+    note right of ActorPrest_Service
+      • Puerto 5004: REP (recibe de GC)
+      • REQ a GA (5003)
+      • Procesa préstamos
+      • Búsqueda de libros
     end note
   }
 
@@ -51,8 +75,9 @@ cloud "Red Docker\n(red_distribuida)" as Network {
     component "Actor Devolución" as ActorDev_Service
     note right of ActorDev_Service
       • Suscribe a "devolucion"
-      • Actualiza ejemplares
-      • Modifica libros.json
+      • REQ a GA (5003)
+      • Procesa devoluciones
+      • Failover automático
     end note
   }
 
@@ -61,19 +86,26 @@ cloud "Red Docker\n(red_distribuida)" as Network {
     component "Actor Renovación" as ActorRen_Service
     note right of ActorRen_Service
       • Suscribe a "renovacion"
+      • REQ a GA (5003)
       • Actualiza fechas
-      • Modifica libros.json
+      • Failover automático
     end note
   }
 
   ' === Archivos Compartidos (bind mount) ===
   database "Archivos Compartidos" as DB {
-    component "libros.json" as LibrosDB
+    component "Réplica Primaria\nlibros.json" as LibrosPrimary
+    component "Réplica Secundaria\nlibros.json" as LibrosSecondary
     component "solicitudes.txt" as SolicitudesFile
   }
 
   ' === Comunicación REQ/REP (Síncrona) ===
   PS_Service -[#red]-> GC_Service : REQ/REP\nPuerto 5001
+  GC_Service -[#red]-> ActorPrest_Service : REQ/REP\nPuerto 5004
+  ActorPrest_Service -[#red]-> GA_Service : REQ/REP\nPuerto 5003
+  ActorDev_Service -[#red]-> GA_Service : REQ/REP\nPuerto 5003
+  ActorRen_Service -[#red]-> GA_Service : REQ/REP\nPuerto 5003
+  GC_Service -[#purple]-> GA_Service : REQ/REP\nPuerto 5003\n(health checks)
 
   ' === Comunicación PUB/SUB (Asíncrona) ===
   GC_Service -[#green]-> ActorDev_Service : PUB/SUB\nPuerto 5002\ntopic: devolucion
@@ -81,11 +113,11 @@ cloud "Red Docker\n(red_distribuida)" as Network {
 
   ' === Acceso a archivos ===
   PS_Service -[#orange]-> SolicitudesFile : Lee
-  ActorDev_Service -[#orange]-> LibrosDB : Lee/Escribe
-  ActorRen_Service -[#orange]-> LibrosDB : Lee/Escribe
+  GA_Service -[#orange]-> LibrosPrimary : Lee/Escribe
+  GA_Service -[#orange]-> LibrosSecondary : Replica\n(asíncrono)
 }
 
-' === Notas explicativas fuera de la nube (para que no molesten el layout) ===
+' === Notas explicativas fuera de la nube ===
 note top of PS_Service
 **Patrón REQ/REP**
 Comunicación síncrona
@@ -96,6 +128,19 @@ note top of GC_Service
 **Patrón PUB/SUB**
 Comunicación asíncrona
 Publisher-Subscriber
+end note
+
+note bottom of GA_Service
+**Gestor de Almacenamiento**
+Centraliza todas las operaciones
+de base de datos
+Réplicas con failover
+end note
+
+note right of ActorPrest_Service
+**Actor Préstamo**
+Procesa préstamos síncronos
+Comunicación directa con GA
 end note
 
 @enduml
