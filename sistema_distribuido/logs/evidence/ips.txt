@@ -1,3 +1,3 @@
-gc IP: 172.18.0.2
-actor_dev IP: 172.18.0.5
-actor_ren IP: 172.18.0.3
+gc IP: 172.18.0.3
+actor_dev IP: 172.18.0.6
+actor_ren IP: 172.18.0.5

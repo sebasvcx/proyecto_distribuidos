@@ -1,4 +1,4 @@
-operaciones_ok=94
-operaciones_error=22
-publicaciones_devolucion=42
-publicaciones_renovacion=52
+operaciones_ok=10
+operaciones_error=2
+publicaciones_devolucion=4
+publicaciones_renovacion=6

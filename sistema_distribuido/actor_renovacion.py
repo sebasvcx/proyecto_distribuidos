@@ -104,7 +104,9 @@ class ActorRenovacion:
                 return False
             
         except Exception as e:
+            import traceback
             logger.error(f"Error procesando renovación: {e}")
+            logger.error(f"Traceback: {traceback.format_exc()}")
             return False
     
     def escuchar_eventos(self):

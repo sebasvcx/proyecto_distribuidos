@@ -1,26 +1,32 @@
 === RESUMEN DE EVIDENCIAS ===
-Timestamp: Mon Nov 17 23:39:44 -05 2025
+Timestamp: Tue Nov 18 00:07:20 -05 2025
 Directorio: ./logs/evidence
 
 === CONTENEDORES ===
-CONTAINER ID   IMAGE                                  COMMAND                  CREATED             STATUS                    PORTS                                                             NAMES
-b83cd5da8d00   sistema_distribuido-ps                 "python proceso_soli…"   About an hour ago   Up 3 seconds                                                                                ps
-5180d90daab0   sistema_distribuido-actor_prestamo     "python actor_presta…"   About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5004->5004/tcp, [::]:5004->5004/tcp                       actor_prestamo
-ea35a1dfc029   sistema_distribuido-actor_renovacion   "python actor_renova…"   About an hour ago   Up 47 seconds (healthy)                                                                     actor_ren
-46cf23d0aab9   sistema_distribuido-actor_devolucion   "python actor_devolu…"   About an hour ago   Up 47 seconds (healthy)                                                                     actor_dev
-b5be6753d944   sistema_distribuido-gc                 "python gestor_carga…"   About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5001-5002->5001-5002/tcp, [::]:5001-5002->5001-5002/tcp   gc
-1af8fb868757   sistema_distribuido-ga                 "python gestor_almac…"   About an hour ago   Up 47 seconds (healthy)   0.0.0.0:5003->5003/tcp, [::]:5003->5003/tcp                       ga
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED              STATUS                        PORTS                                                             NAMES
+f459d50a3bcd   sistema_distribuido-actor_devolucion   "python actor_devolu…"   About a minute ago   Up 54 seconds (healthy)                                                                         actor_dev
+00552ae3ee9a   sistema_distribuido-actor_renovacion   "python actor_renova…"   About a minute ago   Up 54 seconds (healthy)                                                                         actor_ren
+a57266e096c8   sistema_distribuido-actor_prestamo     "python actor_presta…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:5004->5004/tcp, [::]:5004->5004/tcp                       actor_prestamo
+6b5e82eef4e1   sistema_distribuido-gc                 "python gestor_carga…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:5001-5002->5001-5002/tcp, [::]:5001-5002->5001-5002/tcp   gc
+fcbb19b3d517   sistema_distribuido-ga                 "python gestor_almac…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:5003->5003/tcp, [::]:5003->5003/tcp                       ga
+87c35cbeef40   sistema_distribuido-tester             "python -m pytest -v…"   5 minutes ago        Up 5 minutes                                                                                    sistema_distribuido-tester-run-4d80c3908be3
+e1db2f4eb810   sistema_distribuido-tester             "python -m pytest -v…"   9 minutes ago        Up 9 minutes                                                                                    sistema_distribuido-tester-run-77a3d005b2dd
+e489a39471d3   sistema_distribuido-tester             "python -m pytest -v…"   15 minutes ago       Up 15 minutes                                                                                   sistema_distribuido-tester-run-7b3d0e55727e
+aedb6c19d92b   sistema_distribuido-tester             "python -m pytest -v…"   18 minutes ago       Up 18 minutes                                                                                   sistema_distribuido-tester-run-1a28e49d0154
+3b67f1f18f4e   sistema_distribuido-tester             "python -m pytest -v…"   22 minutes ago       Up 22 minutes                                                                                   sistema_distribuido-tester-run-5d20549034a9
+aca14d363b9e   sistema_distribuido-tester             "python -m pytest -v…"   24 minutes ago       Up 24 minutes                                                                                   sistema_distribuido-tester-run-35a5df1c681d
+b83cd5da8d00   sistema_distribuido-ps                 "python proceso_soli…"   2 hours ago          Up 5 seconds                                                                                    ps
 
 === IPs INTERNAS ===
-gc IP: 172.18.0.2
-actor_dev IP: 172.18.0.5
-actor_ren IP: 172.18.0.3
+gc IP: 172.18.0.3
+actor_dev IP: 172.18.0.6
+actor_ren IP: 172.18.0.5
 
 === MÉTRICAS ===
-operaciones_ok=94
-operaciones_error=22
-publicaciones_devolucion=42
-publicaciones_renovacion=52
+operaciones_ok=10
+operaciones_error=2
+publicaciones_devolucion=4
+publicaciones_renovacion=6
 
 === ARCHIVOS RECOLECTADOS ===
 - containers_docker_ps.txt: Estado de contenedores (docker ps)
@@ -37,6 +43,6 @@ publicaciones_renovacion=52
 - metricas.txt: Métricas del sistema
 
 === OBSERVACIONES ===
-- Recolección completada: Mon Nov 17 23:39:44 -05 2025
+- Recolección completada: Tue Nov 18 00:07:20 -05 2025
 - Total de archivos:       13
-- Tamaño total: 9.2M
+- Tamaño total: 9.1M

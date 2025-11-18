@@ -150,7 +150,22 @@ class FailoverManager:
                 # Recibir respuesta
                 respuesta_bytes = self.ga_socket.recv()
                 respuesta_str = respuesta_bytes.decode('utf-8')
-                respuesta = json.loads(respuesta_str)
+                
+                # Verificar que la respuesta es un string JSON válido
+                if not respuesta_str or not isinstance(respuesta_str, str):
+                    logger.error(f"Respuesta inválida del GA: {type(respuesta_str)}")
+                    raise ValueError(f"Respuesta inválida del GA: {type(respuesta_str)}")
+                
+                try:
+                    respuesta = json.loads(respuesta_str)
+                except json.JSONDecodeError as e:
+                    logger.error(f"Error parseando respuesta JSON del GA: {e}, respuesta: {respuesta_str[:200]}")
+                    raise
+                
+                # Verificar que la respuesta es un diccionario
+                if not isinstance(respuesta, dict):
+                    logger.error(f"Respuesta del GA no es un diccionario: {type(respuesta)}, valor: {respuesta}")
+                    raise ValueError(f"Respuesta del GA no es un diccionario: {type(respuesta)}")
                 
                 self.last_health_check = time.time()
                 self.using_primary = True

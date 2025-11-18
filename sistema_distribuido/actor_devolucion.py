@@ -101,7 +101,9 @@ class ActorDevolucion:
                 return False
             
         except Exception as e:
+            import traceback
             logger.error(f"Error procesando devolución: {e}")
+            logger.error(f"Traceback: {traceback.format_exc()}")
             return False
     
     def escuchar_eventos(self):

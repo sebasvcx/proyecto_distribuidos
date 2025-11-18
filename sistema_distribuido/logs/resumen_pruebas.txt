@@ -1,20 +1,20 @@
 === RESUMEN DE PRUEBAS ===
-Timestamp: Mon Nov 17 23:39:44 -05 2025
+Timestamp: Tue Nov 18 00:07:20 -05 2025
 Log: ./logs/run_tests.log
 
 === RESULTADOS POR TEST ===
-Test 1 (End-to-end básico): FAILED
+Test 1 (End-to-end básico): PASSED
 Test 2 (Pub/Sub visibilidad): PASSED
 Test 3 (Workload con archivo): PASSED
 
 === CRITERIOS DE ACEPTACIÓN ===
 - [ ] ≥3 procesos en ≥2 computadores: CUMPLIDO
-- [ ] REQ/REP (PS→GC) con ACK inmediato: FAILED
+- [ ] REQ/REP (PS→GC) con ACK inmediato: PASSED
 - [ ] PUB/SUB (GC→Actores) por temas: PASSED
-- [ ] Operaciones aplicadas a libros.json: FAILED
+- [ ] Operaciones aplicadas a libros.json: PASSED
 - [ ] Archivo de carga procesado por PS: PASSED
 - [ ] Logs con timestamps y conteos: DISPONIBLE
 
 === ESTADO FINAL ===
-Tests pasados: 2/3
-Estado general: ALGUNOS TESTS FALLARON
+Tests pasados: 3/3
+Estado general: TODOS LOS TESTS PASARON

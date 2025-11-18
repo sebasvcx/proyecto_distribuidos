@@ -4,9 +4,9 @@
     "fecha_creacion": "2025-10-06T19:40:19.417850",
     "total_libros": 1000,
     "total_ejemplares": 7728,
-    "ejemplares_prestados_sede_1": 48,
+    "ejemplares_prestados_sede_1": 47,
     "ejemplares_prestados_sede_2": 150,
-    "ejemplares_disponibles": 7530
+    "ejemplares_disponibles": 7531
   },
   "libros": [
     {
@@ -40,24 +40,24 @@
       "libro_id": "L0002",
       "titulo": "Cien Años de Soledad",
       "total_ejemplares": 10,
-      "ejemplares_disponibles": 8,
-      "ejemplares_prestados": 2,
+      "ejemplares_disponibles": 9,
+      "ejemplares_prestados": 1,
       "ejemplares": [
         {
           "ejemplar_id": "L0002-E001",
           "libro_id": "L0002",
           "titulo": "Cien Años de Soledad",
-          "estado": "prestado",
-          "fecha_devolucion": "2025-10-18",
-          "usuario_prestamo": "U0403",
-          "sede": "SEDE_1"
+          "estado": "disponible",
+          "fecha_devolucion": null,
+          "usuario_prestamo": null,
+          "sede": null
         },
         {
           "ejemplar_id": "L0002-E002",
           "libro_id": "L0002",
           "titulo": "Cien Años de Soledad",
           "estado": "prestado",
-          "fecha_devolucion": "2025-10-14",
+          "fecha_devolucion": "2025-11-25",
           "usuario_prestamo": "U0227",
           "sede": "SEDE_1"
         },

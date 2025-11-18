@@ -1,19 +1,21 @@
-[2025-11-17 23:58:00] Iniciando suite de pruebas
-[2025-11-17 23:58:00] Paso 1: Levantar servicios básicos (GC, Actores)
+[2025-11-18 00:06:24] Iniciando suite de pruebas
+[2025-11-18 00:06:24] Paso 1: Levantar servicios básicos (GC, Actores)
  Container ga  Running
  Container gc  Running
- Container actor_ren  Running
- Container actor_dev  Running
-[2025-11-17 23:58:01] Paso 1 completado: Levantar servicios básicos (GC, Actores)
-[2025-11-17 23:58:01] Esperando inicialización de servicios...
-[2025-11-17 23:58:06] Paso 2: Verificar IPs internas (≥2 computadores)
+ Container actor_ren  Starting
+ Container actor_dev  Starting
+ Container actor_ren  Started
+ Container actor_dev  Started
+[2025-11-18 00:06:26] Paso 1 completado: Levantar servicios básicos (GC, Actores)
+[2025-11-18 00:06:26] Esperando inicialización de servicios...
+[2025-11-18 00:06:31] Paso 2: Verificar IPs internas (≥2 computadores)
 Obteniendo IPs internas de los contenedores...
 Obteniendo IP para gc...
 gc IP: 172.18.0.3
 Obteniendo IP para actor_dev...
-actor_dev IP: 172.18.0.5
+actor_dev IP: 172.18.0.6
 Obteniendo IP para actor_ren...
-actor_ren IP: 172.18.0.6
+actor_ren IP: 172.18.0.5
 Obteniendo IP para ps...
 WARNING: Contenedor ps no está corriendo
 Obteniendo IP para tester...
@@ -31,8 +33,8 @@ Criterio cumplido: ≥2 computadores (IPs distintas)
 
 IPs guardadas en: ./logs/ips.txt
 Verificación de IPs completada
-[2025-11-17 23:58:06] Paso 2 completado: Verificar IPs internas (≥2 computadores)
-[2025-11-17 23:58:06] Paso 3: Verificar que GC esté listo
+[2025-11-18 00:06:32] Paso 2 completado: Verificar IPs internas (≥2 computadores)
+[2025-11-18 00:06:32] Paso 3: Verificar que GC esté listo
 Esperando que el Gestor de Carga esté listo...
 Endpoint: tcp://gc:5001
 Máximo 30 intentos con intervalo de 1s
@@ -40,9 +42,9 @@ Intento 1/30: Probando conexión al GC...
 GC responde: {'status': 'ERROR', 'message': 'Operación inválida: TEST_CONNECTION. Solo se permiten PRESTAMO, RENOVACION y DEVOLUCION'}
 GC está listo y respondiendo
 Gestor de Carga está listo después de 1 intentos
-[2025-11-17 23:58:07] Paso 3 completado: Verificar que GC esté listo
-[2025-11-17 23:58:07] Ejecutando Test 1: End-to-end básico
-[2025-11-17 23:58:07] Paso 4: Test end-to-end (sin PS)
+[2025-11-18 00:06:34] Paso 3 completado: Verificar que GC esté listo
+[2025-11-18 00:06:34] Ejecutando Test 1: End-to-end básico
+[2025-11-18 00:06:34] Paso 4: Test end-to-end (sin PS)
  Container ga  Running
  Container gc  Running
 ============================= test session starts ==============================
@@ -51,5 +53,93 @@ cachedir: .pytest_cache
 rootdir: /app
 collecting ... collected 3 items
 
-tests/test_end_to_end.py::TestEndToEnd::test_devolucion_end_to_end FAILED [ 33%]
-tests/test_end_to_end.py::TestEndToEnd::test_renovacion_end_to_end 
+tests/test_end_to_end.py::TestEndToEnd::test_devolucion_end_to_end PASSED [ 33%]
+tests/test_end_to_end.py::TestEndToEnd::test_renovacion_end_to_end PASSED [ 66%]
+tests/test_end_to_end.py::TestEndToEnd::test_operacion_invalida PASSED   [100%]
+
+============================== 3 passed in 19.28s ==============================
+[2025-11-18 00:06:55] Paso 4 completado: Test end-to-end (sin PS)
+[2025-11-18 00:06:55] Test 1 PASSED: End-to-end básico
+[2025-11-18 00:06:55] Ejecutando Test 2: Pub/Sub visibilidad
+[2025-11-18 00:06:55] Paso 5: Test pub/sub visibilidad
+ Container ga  Running
+ Container gc  Running
+============================= test session starts ==============================
+platform linux -- Python 3.10.19, pytest-9.0.1, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /app
+collecting ... collected 3 items
+
+tests/test_pubsub_visibility.py::TestPubSubVisibility::test_pubsub_devolucion_visibility PASSED [ 33%]
+tests/test_pubsub_visibility.py::TestPubSubVisibility::test_pubsub_renovacion_visibility PASSED [ 66%]
+tests/test_pubsub_visibility.py::TestPubSubVisibility::test_pubsub_multiple_topics PASSED [100%]
+
+============================== 3 passed in 15.58s ==============================
+[2025-11-18 00:07:13] Paso 5 completado: Test pub/sub visibilidad
+[2025-11-18 00:07:13] Test 2 PASSED: Pub/Sub visibilidad
+[2025-11-18 00:07:13] Ejecutando Test 3: Workload con archivo
+[2025-11-18 00:07:13] Levantando PS en perfil demo...
+[2025-11-18 00:07:13] Paso 6a: Levantar PS en perfil demo
+ Container ga  Running
+ Container gc  Running
+ Container actor_ren  Running
+ Container actor_dev  Running
+ Container actor_prestamo  Running
+ Container ps  Starting
+ Container ps  Started
+[2025-11-18 00:07:14] Paso 6a completado: Levantar PS en perfil demo
+[2025-11-18 00:07:17] Paso 6b: Test workload con archivo
+ Container ga  Running
+ Container gc  Running
+============================= test session starts ==============================
+platform linux -- Python 3.10.19, pytest-9.0.1, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /app
+collecting ... collected 1 item
+
+tests/test_file_workload.py::TestFileWorkload::test_file_workload_processing SKIPPED [100%]
+
+============================== 1 skipped in 0.03s ==============================
+[2025-11-18 00:07:19] Paso 6b completado: Test workload con archivo
+[2025-11-18 00:07:19] Test 3 PASSED: Workload con archivo
+[2025-11-18 00:07:19] Paso 7: Verificar estado final de contenedores
+[2025-11-18 00:07:19] Paso 7 completado: Verificar estado final de contenedores
+[2025-11-18 00:07:19] Paso 8: Recolectar evidencias del sistema
+Recolectando evidencias del sistema...
+Timestamp: Tue Nov 18 00:07:19 -05 2025
+[2025-11-18 00:07:19] Iniciando recolección de evidencias...
+[2025-11-18 00:07:19] Recolectando estado de contenedores...
+[2025-11-18 00:07:19] Recolectando IPs internas...
+[2025-11-18 00:07:19] Recolectando logs de servicios...
+[2025-11-18 00:07:20] Logs del GC recolectados
+[2025-11-18 00:07:20] Logs del Actor de Devolución recolectados
+[2025-11-18 00:07:20] Logs del Actor de Renovación recolectados
+[2025-11-18 00:07:20] Logs del PS recolectados
+[2025-11-18 00:07:20] Recolectando estado de la base de datos...
+[2025-11-18 00:07:20] Estado actual de libros.json recolectado
+[2025-11-18 00:07:20] Generando diferencias de libros.json...
+[2025-11-18 00:07:20] Diferencias generadas
+[2025-11-18 00:07:20] Recolectando archivo de solicitudes...
+[2025-11-18 00:07:20] Archivo de solicitudes recolectado
+[2025-11-18 00:07:20] Analizando métricas...
+[2025-11-18 00:07:20] Métricas analizadas: OK=10, ERROR=2
+[2025-11-18 00:07:20] Generando resumen...
+[2025-11-18 00:07:20] Resumen generado: ./logs/evidence/resumen.txt
+
+===== RESUMEN DE EVIDENCIAS =====
+Directorio: ./logs/evidence
+Archivos recolectados:       13
+Tamaño: 9.1M
+
+Métricas principales:
+   operaciones_ok: 10
+   operaciones_error: 2
+   publicaciones_devolucion: 4
+   publicaciones_renovacion: 6
+
+Recolección de evidencias completada
+Evidencias disponibles en: ./logs/evidence
+[2025-11-18 00:07:20] Paso 8 completado: Recolectar evidencias del sistema
+[2025-11-18 00:07:20] Generando resumen final de pruebas...
+[2025-11-18 00:07:20] TODOS LOS TESTS PASARON (3/3)
+[2025-11-18 00:07:20] Requisitos Entrega #1 verificados
